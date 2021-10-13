@@ -2,14 +2,28 @@ years = ['2005', '2006', '2007', '2008',
         '2009', '2010', '2011', '2012',
         '2013', '2014', '2015',]
 
+// init lists (dropped 'Miscellaneous', 'Structure', 'Missing/Undefined',
+// 'Debris Burning')
+causeList = ['Arson', 'Campfire', 'Smoking', 'Lightning',
+    'Equipment Use', 'Children', 'Railroad',
+    'Fireworks', 'Powerline']
+
 function init(){
     // pull data from the samples.json file
     d3.json("fire_data.json").then(data => {
         // create dropdown options and names from samples.json
-        var dropdownMenu = d3.select("#selFireYear");
+        var yearDropdown = d3.select("#selFireYear");
         years.forEach(item => {
             // loop and populate the names into the dropdown box
-            dropdownMenu.append("option") // add option to dropdown
+            yearDropdown.append("option") // add option to dropdown
+            .property("value", item) // variable name
+            .text(item); // populate text 
+        })
+
+        var causeDropdown = d3.select("#selFireCause");
+        causeList.forEach(item => {
+            // loop and populate the names into the dropdown box
+            causeDropdown.append("option") // add option to dropdown
             .property("value", item) // variable name
             .text(item); // populate text 
         })
@@ -17,14 +31,18 @@ function init(){
         console.log(data[20]);
 
         // //create inital visulizations
-        var initYear = dropdownMenu.property("value");
+        var initYear = yearDropdown.property("value");
         firesVsYear();
         yearVsSize(initYear);
         yearVsCause(initYear);
+        var initCuase = causeDropdown.property("value");
+        causeVsYear(initCuase);
+
     })
 };
 
 init();
+// _____________________________________________________________________
 
 function firesVsYear(){
     // pull data from jsonfile
@@ -49,6 +67,32 @@ function firesVsYear(){
             height: 300,
             width: 600};
         Plotly.newPlot('fires-by-year-bar', bar, barLayout);
+        
+    })
+};
+// __________________________________________________________________________
+
+function causeVsYear(selCause){
+    // pull data from jsonfile
+    d3.json("fire_data.json").then(data => {
+        currCause = data.filter(item => item.STAT_CAUSE_DESCR == selCause).length;
+        // loop thru each year, filter and return
+        // the number of fires in each year
+        causeCountByYear = []
+        for (let i = 0; i < causeList.length; i++) {
+            currCount = data.filter(item => item.FIRE_YEAR == years[i]).length;
+            causeCountByYear.push(currCount);
+        }
+        d3.select('#cause-by-year-plot').html(''); // clears out old graph
+        let bar = [{
+            x: years,
+            y: causeCountByYear,
+            type: 'bar'}];
+        let barLayout = {
+            title: `Fires Caused by ${selCause}`,
+            height: 300,
+            width: 600};
+        Plotly.newPlot('cause-by-year-plot', bar, barLayout);
         
     })
 };
@@ -147,10 +191,18 @@ return string.charAt(0).toUpperCase() + string.slice(1);
 // };
 
 // updates visualizations when id is changed
-function optionChanged(){
+function yearChanged(){
     console.log('option function triggered')
     var currYear = d3.select("#selFireYear").property("value");
     console.log(currYear);
     yearVsSize(currYear);
     yearVsCause(currYear);
+};
+
+function causeChanged(){
+    console.log('option function triggered')
+    var currCause = d3.select("#selFireCause").property("value");
+    console.log(currCause);
+    causeVsYear(currCause);
+
 };

@@ -28,7 +28,11 @@
       <div class="col-md-2">
         <div class="well">
           <h5>Change to View Data for a Given Year:</h5>
-          <select id="selFireYear" onchange="optionChanged(this.value)"></select>
+          <select id="selFireYear" onchange="yearChanged(this.value)"></select>
+        </div>
+        <div class="well">
+          <h5>Change to View Cause:</h5>
+          <select id="selFireCause" onchange="causeChanged(this.value)"></select>
         </div>
         <div class="panel panel-primary">
           <div class="panel-heading">
@@ -45,6 +49,12 @@
     <div class="row">
       <div class="col-md-12">
         <div id="fires-by-cause-bar"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="cause-by-year-plot"></div>
       </div>
     </div>
 
