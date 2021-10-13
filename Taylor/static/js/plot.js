@@ -20,6 +20,7 @@ function init(){
         var initYear = dropdownMenu.property("value");
         firesVsYear();
         yearVsSize(initYear);
+        yearVsCause(initYear);
     })
 };
 
@@ -38,7 +39,7 @@ function firesVsYear(){
         console.log('years:', years);
         console.log('counts:', fireCountByYear)
 
-        d3.select('#bar').html(''); // clears out old graph
+        d3.select('#fires-by-year-bar').html(''); // clears out old graph
         let bar = [{
             x: years,
             y: fireCountByYear,
@@ -51,6 +52,7 @@ function firesVsYear(){
         
     })
 };
+// __________________________________________________________________________
 
 function yearVsSize(selectedYear){
     // pull data from jsonfile
@@ -65,9 +67,9 @@ function yearVsSize(selectedYear){
             currCount = currYearData.filter(item => item.FIRE_SIZE_CLASS == sizeClass[i]).length;
             fireSizeCount.push(currCount);
         }
-        console.log('years:', fireSizeCount);
-        console.log('counts:', sizeClass)
-        d3.select('#bar').html(''); // clears out old graph
+        console.log('counts:', fireSizeCount);
+        console.log('Size Classes:', sizeClass)
+        d3.select('#fires-by-size').html(''); // clears out old graph
         let bar = [{
             x: sizeClass,
             y: fireSizeCount,
@@ -80,6 +82,42 @@ function yearVsSize(selectedYear){
         
     })
 };
+// __________________________________________________________________________
+
+function yearVsCause(selectedYear){
+    // pull data from jsonfile
+    d3.json("fire_data.json").then(data => {
+        // filter data to only selected year
+        currYearData = data.filter(item => item.FIRE_YEAR == selectedYear)
+        // init lists (dropped 'Miscellaneous', 'Structure', 'Missing/Undefined',
+        // 'Debris Burning')
+        fireCauseCount = []
+        causeList = ['Arson', 'Campfire', 'Smoking', 'Lightning',
+            'Equipment Use', 'Children', 'Railroad',
+            'Fireworks', 'Powerline']
+        // loop thru, filter and return
+        // the number of fires in each year
+        for (let i = 0; i < causeList.length; i++) {
+            currCount = currYearData.filter(item => item.STAT_CAUSE_DESCR == causeList[i]).length;
+            fireCauseCount.push(currCount);
+        }
+        console.log('Cause Count:', fireSizeCount);
+
+        d3.select('#fires-by-cause-bar').html(''); // clears out old graph
+        let bar = [{
+            x: causeList,
+            y: fireCauseCount,
+            type: 'bar'}];
+        let barLayout = {
+            title: `Fires by Cause in ${selectedYear}`,
+            height: 300,
+            width: 600};
+        Plotly.newPlot('fires-by-cause-bar', bar, barLayout);
+        
+    })
+};
+// __________________________________________________________________________
+
 
 // formatting fuction
 function capitalize(string) {
@@ -114,4 +152,5 @@ function optionChanged(){
     var currYear = d3.select("#selFireYear").property("value");
     console.log(currYear);
     yearVsSize(currYear);
+    yearVsCause(currYear);
 };
