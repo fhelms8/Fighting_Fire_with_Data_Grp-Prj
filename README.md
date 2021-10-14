@@ -1,5 +1,5 @@
 
-
+![original (5)](https://user-images.githubusercontent.com/82190357/137281034-f3a568f7-f214-44b5-b703-60793515a539.jpg)
 
 
 
@@ -20,11 +20,20 @@ The goal of the project is to provide a consistent, comparable set of scientific
 ### Visualizations
 Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action.
 
+![Screenshot_1](https://user-images.githubusercontent.com/82190357/137281183-61a99571-7f9b-44b2-a7e6-bc53a48d4028.png)
+
+
+![Screenshot_2](https://user-images.githubusercontent.com/82190357/137281299-81037403-39f6-4d31-bdc9-b2740cc2330a.png)
+
+
 ### Motivation
 xxxxxxxxxxxxxxxxxxxx
 
 ### Problem Solved
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxe.
+
+
+![original (1)](https://user-images.githubusercontent.com/82190357/137281572-0335e82c-8b80-4629-ba77-f52850a4988b.jpg)
 
 ### What Did We Learn
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
