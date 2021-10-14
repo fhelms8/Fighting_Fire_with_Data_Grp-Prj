@@ -1,7 +1,7 @@
 
 
 
-![Screenshot_3](https://user-images.githubusercontent.com/82190357/129462837-22a95939-be73-486a-94f2-d89e883e4248.png)
+
 
       
 #                                               Fighting Fire with Data
@@ -27,9 +27,6 @@ The goal of the project is to provide a consistent, comparable set of scientific
 Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action. 
 
 
-![LinRegression Unemployment Rate v Auto Sales without Outliers](https://user-images.githubusercontent.com/82190357/129462636-4cdb1af0-eba4-4580-a010-7df81443e681.png)
-![LinRegression Gas v Auto Sales without Outliers](https://user-images.githubusercontent.com/82190357/129466146-9163c1e8-a034-4543-9659-fdf6715ed196.png)
-![2017-2021 Sales Box Plots](https://user-images.githubusercontent.com/82190357/129466447-394a7fff-305d-40b0-8b97-8ca115e19bfd.png)
 
 
 
@@ -60,7 +57,7 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 - Javascript/Plotly/D3/xxx
 
 
-![Dealership2](https://user-images.githubusercontent.com/82190357/129466605-cf269606-a27f-444c-9bbd-87744953759c.jpg)
+
 
 
 
