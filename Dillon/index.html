@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link rel="stylesheet" type="text/css" href="style.css">
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
@@ -15,7 +17,33 @@
 </head>
 
 <body>
-  <div id="map"></div>
+<div class="container">
+    <div class="row">
+        <div class="well">
+            <h5>Change to View Data for a Given Year:</h5>
+            <select id="selFireYear" onchange="optionChanged(this.value)">
+                <option>Select Year</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+            </select>
+        </div>
+        <br /><br /><br />
+        <div class="mapContainer" style="height: 600px;width: 600px;">
+            <div id="map" class="currentMap"></div>
+        </div>
+        
+    </div>
+</div>
+
 
   <script type="text/javascript" src="logic.js"></script>
 </body>
