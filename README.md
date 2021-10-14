@@ -30,11 +30,11 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxe.
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ### Tools
-MongoDB Atlas
-Python/Pandas/Flask
-Jupyter Notebook
-Javascript/Plotly/D3/xxx
+- MongoDB Atlas
+- Python/Pandas/Flask
+- Jupyter Notebook
+- Javascript/Plotly/D3/xxx
 
-###Team
+### Team
 Dillon Carter ---|--- Felicia Helms ---|--- Darrell Horich ---|--- Taylor Lyons
 
