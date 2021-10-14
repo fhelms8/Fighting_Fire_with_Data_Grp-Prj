@@ -45,5 +45,5 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 - Javascript/Plotly/D3/xxx
 
 ### Team
-Dillon Carter ---|--- Felicia Helms ---|--- Darrell Horich ---|--- Taylor Lyons
+Dillon Carter ---|--- Felecia Helms ---|--- Darrell Horich ---|--- Taylor Lyons
 
