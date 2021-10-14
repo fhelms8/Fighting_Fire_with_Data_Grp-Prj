@@ -68,6 +68,15 @@ function optionChanged(sel) {
                 }).bindPopup(`<h3>${cause}</h3><hr><p>
                 <b>Fire Size Class:</b> ${fireSizeClass}<br/><b>Fire Size:</b> ${fireSize} (Estimate of acres)<br/><b>Location:</b> ${location}</p>`).addTo(myMap);
             }
+            if (cause == sel) {
+                L.circle(location, {
+                    fillOpacity: .5,
+                    color: color,
+                    fillColor: color,
+                    radius: fireSize / 640
+                }).bindPopup(`<h3>${cause}</h3><hr><p>
+                <b>Fire Size Class:</b> ${fireSizeClass}<br/><b>Fire Size:</b> ${fireSize} (Estimate of acres)<br/><b>Location:</b> ${location}</p> ${year}`).addTo(myMap);
+            }
         }
     });
 
