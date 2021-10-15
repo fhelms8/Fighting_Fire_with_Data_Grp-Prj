@@ -39,6 +39,9 @@ let selectM = d3.select('.mapContainer');
 
 // function to update map based on dropdown selection
 function optionChanged(sel) {
+    let option = sel;
+    console.log(d3.select('#selFireYear').text());
+
     $('#map').remove();
     selectM.append('div').attr('id', 'map');
 
@@ -140,11 +143,11 @@ paleoData.then(data => {
         d2.push(data[a].D2);
         d3.push(data[a].D3);
         d4.push(data[a].D4);
-        w0.push(data[a].W0);
-        w1.push(data[a].W1);
-        w2.push(data[a].W2);
-        w3.push(data[a].W3);
-        w4.push(data[a].W4);
+        w0.push(-data[a].W0);
+        w1.push(-data[a].W1);
+        w2.push(-data[a].W2);
+        w3.push(-data[a].W3);
+        w4.push(-data[a].W4);
     }
     // console.log(d0);
 
