@@ -1,5 +1,5 @@
 
-let url = 'fires_clean.csv';
+let url = 'fires_clean2.csv';
 let paleoUrl = 'PALEO-texas.json';
 let spiUrl = 'SPI-texas.json';
 let usdmUrl = 'USDM-texas.json';
@@ -14,8 +14,8 @@ function optionChanged(sel) {
     selectM.append('div').attr('id', 'map');
 
     let myMap = L.map('map', {
-        center: [31.14, -100.27],
-        zoom: 5,
+        center: [31.53, -99.65],
+        zoom: 6,
     });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
