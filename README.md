@@ -27,7 +27,11 @@ The goal of the project is to provide a consistent, comparable set of scientific
 - Deployment
 
 
-### ETL
+<details>
+<summary>### ETL</summary>
+<br>
+This is how you dropdown.
+</details>
 
 ### Visualizations
 Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action.
