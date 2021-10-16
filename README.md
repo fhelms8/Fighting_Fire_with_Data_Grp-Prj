@@ -14,11 +14,25 @@ The Texas Department of Outdoor and Nature Things has recently received an addit
 - Area/Regions of Concern: Which locations would benefit the most from the deployment of preventative measures?
 - Prediction: Are there significant changes in the intensity, speed, or size of wildfires?
 
+### Proposal
+
 ### Project
-The goal of the project is to provide a consistent, comparable set of scientific results to be used as a foundation for wildfire mitigation and prevention planning across Texas. Results of the assessment can be used to help prioritize areas in the state where tactical analyses, community interaction and education, or mitigation treatments might be necessary to reduce risk from wildfires.
+The goal of the project is to provide a consistent, comparable set of scientific results to be used as a foundation for wildfire mitigation and prevention planning across Texas. Results of the assessment can be used to help prioritize areas in the state where tactical analyses, community interaction and education, or mitigation treatments might be necessary to reduce risk from wildfires. -tamu
+
+### Process
+- ETL
+- xxx
+- Visualizations
+- Dashboard
+- Deployment
+
+
+### ETL
 
 ### Visualizations
 Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action.
+
+### Deployment
 
 
 
@@ -32,8 +46,7 @@ Through the use of data visualizations, large volumes of data can be readily tra
 ![Screenshot_2](https://user-images.githubusercontent.com/82190357/137281299-81037403-39f6-4d31-bdc9-b2740cc2330a.png)
 
 
-### Motivation
-xxxxxxxxxxxxxxxxxxxx
+
 
 ### Problem Solved
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxe.
@@ -41,14 +54,16 @@ xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxe.
 
 ![original (1)](https://user-images.githubusercontent.com/82190357/137281572-0335e82c-8b80-4629-ba77-f52850a4988b.jpg)
 
-### What Did We Learn
-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+### Data Sources
+- U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE
+- xxxx
+- xxxx
 
 ### Tools
 - MongoDB Atlas
 - Python/Pandas/Flask
 - Jupyter Notebook
-- Javascript/Plotly/D3/xxx
+- Javascript/Plotly/D3/Chart.js
 
 ### Team
 Dillon Carter ---|--- Felecia Helms ---|--- Darrell Horich ---|--- Taylor Lyons
