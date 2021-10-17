@@ -1,0 +1,57 @@
+texas_fires
+-
+STATE varchar
+FIRE_YEAR int
+FIRE_SIZE real	
+FIRE_SIZE_CLASS varchar
+STAT_CAUSE_DESCR varchar
+LATITUDE real
+LONGITUDE real
+
+ACRES_BY_CAUSE
+-
+STAT_CAUSE_DESCR varchar
+FIRE_SIZE real
+
+ACRES_BY_CLASS
+-
+FIRE_SIXE_CLASS varchar
+FIRE_SIZE real
+
+ACRES_BY_YEAR
+-
+FIRE_YEAR int
+FIRE_SIZE real
+
+YEAR_RANGES
+-
+ID int
+YEAR int
+
+SPI
+-
+SPI_INDEX real
+DATE int
+D0 real
+D1 real
+D2 real
+D3 real 
+D4 real 
+W0 real 
+W2 real 
+W3 real 
+W4 real 
+
+PALEO 
+-
+PMDI real
+DATE INT
+D0 real
+D1 real
+D2 real
+D3 real 
+D4 real 
+W0 real 
+W2 real 
+W3 real 
+W4 real 
