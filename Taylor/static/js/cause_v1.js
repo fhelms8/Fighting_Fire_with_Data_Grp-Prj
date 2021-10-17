@@ -83,7 +83,7 @@ function causes(selectedYear){
             name: 'Arson',
             line: {
               color: 'rgb(55, 128, 191)',
-              width: 1
+              width: 2
             }
           };
 
@@ -95,7 +95,7 @@ function causes(selectedYear){
             name: 'Campfire',
             line: {
               color: 'green',
-              width: 1
+              width: 2
             }
           };
 
@@ -107,7 +107,7 @@ function causes(selectedYear){
             name: 'Smokeing',
             line: {
               color: 'orange',
-              width: 1
+              width: 2
             }
           };
 
@@ -119,7 +119,7 @@ function causes(selectedYear){
             name: 'Lightning',
             line: {
               color: 'purple',
-              width: 1
+              width: 2
             }
           };
 
@@ -131,7 +131,7 @@ function causes(selectedYear){
             name: 'Equipment Use',
             line: {
               color: 'green',
-              width: 1
+              width: 2
             }
           };
 
@@ -143,7 +143,7 @@ function causes(selectedYear){
             name: 'Children',
             line: {
               color: 'pink',
-              width: 1
+              width: 2
             }
           };
 
@@ -155,7 +155,7 @@ function causes(selectedYear){
             name: 'Railroads',
             line: {
               color: 'yellow',
-              width: 1
+              width: 2
             }
           };
 
@@ -167,7 +167,7 @@ function causes(selectedYear){
             name: 'Fireworks',
             line: {
               color: 'black',
-              width: 1
+              width: 2
             }
           };
 
@@ -179,14 +179,18 @@ function causes(selectedYear){
             name: 'Powerlines',
             line: {
               color: 'yellow',
-              width: 1
+              width: 2
             }
           };
 
           
           var layout = {
             width: 1000,
-            height: 500
+            height: 500,
+            // template='plotly_dark'
+            plot_bgcolor:"black",
+            xaxis: {gridcolor: "grey"},
+            yaxis: {gridcolor: "grey"}
           };
           
           var data = [total_trace, arson_trace, camp_trace, 
