@@ -1,10 +1,7 @@
-let url = 'data/fires_clean2.csv';
-let paleoUrl = 'data/PALEO-texas.json';
-let spiUrl = 'data/SPI-texas.json';
-let usdmUrl = 'data/USDM-texas.json';
-
-
-
+let url = 'fires_clean2.csv';
+let paleoUrl = 'PALEO-texas.json';
+let spiUrl = 'SPI-texas.json';
+let usdmUrl = 'USDM-texas.json';
 
 let selectM = d3.select('.mapContainer');
 
