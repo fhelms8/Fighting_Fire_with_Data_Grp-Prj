@@ -19,6 +19,7 @@ causeList = ['Arson', 'Campfire', 'Smoking', 'Lightning',
             railByYear = []
             firewByYear = []
             powlineByYear = [] 
+            undefByYear = []
 
 
             dict = {}
@@ -64,7 +65,7 @@ function causes(selectedYear){
         d3.select('#causes').html(''); // clears out old graph
         
         total_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: countByYear,
             mode: 'lines',
@@ -76,7 +77,7 @@ function causes(selectedYear){
           };
           
           arson_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: arsonByYear,
             mode: 'lines',
@@ -88,7 +89,7 @@ function causes(selectedYear){
           };
 
           camp_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: campfireByYear,
             mode: 'lines',
@@ -100,7 +101,7 @@ function causes(selectedYear){
           };
 
           smoke_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: smokingByYear,
             mode: 'lines',
@@ -112,7 +113,7 @@ function causes(selectedYear){
           };
 
           lightning_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: lightningByYear,
             mode: 'lines',
@@ -124,7 +125,7 @@ function causes(selectedYear){
           };
 
           equip_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: equipByYear,
             mode: 'lines',
@@ -136,7 +137,7 @@ function causes(selectedYear){
           };
 
           child_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: childByYear,
             mode: 'lines',
@@ -148,7 +149,7 @@ function causes(selectedYear){
           };
 
           rail_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: railByYear,
             mode: 'lines',
@@ -160,7 +161,7 @@ function causes(selectedYear){
           };
 
           fireworks_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: firewByYear,
             mode: 'lines',
@@ -172,7 +173,7 @@ function causes(selectedYear){
           };
 
           powerlines_trace = {
-            type: 'scatter',
+            type: 'bar',
             x: years,
             y: powlineByYear,
             mode: 'lines',
@@ -182,8 +183,7 @@ function causes(selectedYear){
               width: 2
             }
           };
-
-          
+       
           var layout = {
             width: 1000,
             height: 500,
@@ -195,7 +195,8 @@ function causes(selectedYear){
           
           var data = [total_trace, arson_trace, camp_trace, 
                       child_trace, rail_trace, equip_trace, 
-                      lightning_trace, powerlines_trace, fireworks_trace];
+                      lightning_trace, powerlines_trace, 
+                      fireworks_trace];
           
           Plotly.newPlot('causes', data, layout);
         
