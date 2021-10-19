@@ -30,7 +30,7 @@ from flask_sqlalchemy import SQLAlchemy
     
 @app.route("/")
 def test():
-    return "<h1> Hello world</h1>"
+    return render_template("index.html")
 
 @app.route("/api/spi")
 def spi():
