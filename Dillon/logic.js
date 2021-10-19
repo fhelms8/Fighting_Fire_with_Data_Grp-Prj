@@ -188,39 +188,45 @@ paleoData.then(data => {
         data: d4,
     },
     {
-          label: 'Abnormally Wet',
-          backgroundColor: 'rgb(170, 255, 85)',
-          data: w0,
-    },
-    {
-        label: 'Moderate Wet',
-        backgroundColor: 'rgb(1, 255, 255)',
-        data: w1,
-    },
-    {
-        label: 'Severe Wet',
-        backgroundColor: 'rgb(0, 170, 255)',
-        data: w2,
-    },
-    {
-        label: 'Extreme Wet',
-        backgroundColor: 'rgb(0, 0, 255)',
-        data: w3,
-    },
-    {
-        label: 'Exceptional Wet',
-        backgroundColor: 'rgb(0, 0, 170)',
-        data: w4,
-    },
-    {
         type: 'line',
         pointStyle: 'dash',
         label: 'Fires per Year',
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
         fill: true,
         borderColor: 'rgb(75, 192, 192)',
-        tension: 0.1,
-        data: fby
+        tension:  0.4,
+        // hidden: true,
+        data: fby,
+    },
+    {
+        label: 'Abnormally Wet',
+        backgroundColor: 'rgb(170, 255, 85)',
+        data: w0,
+        hidden: true,
+    },
+    {
+        label: 'Moderate Wet',
+        backgroundColor: 'rgb(1, 255, 255)',
+        data: w1,
+        hidden: true,
+    },
+    {
+        label: 'Severe Wet',
+        backgroundColor: 'rgb(0, 170, 255)',
+        data: w2,
+        hidden: true,
+    },
+    {
+        label: 'Extreme Wet',
+        backgroundColor: 'rgb(0, 0, 255)',
+        data: w3,
+        hidden: true,
+    },
+    {
+        label: 'Exceptional Wet',
+        backgroundColor: 'rgb(0, 0, 170)',
+        data: w4,
+        hidden: true,
     }
     ]
     };
@@ -232,6 +238,9 @@ paleoData.then(data => {
             title: {
               display: true,
               text: 'Drought in Texas from 1992-2015'
+            },
+            filler: {
+                propagate: true
             },
             legend: {
                 position:'right'
