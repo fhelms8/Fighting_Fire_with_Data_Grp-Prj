@@ -109,6 +109,7 @@ A Python Flask App was written to facilitate the retrieval of data in the postgr
 
 ![QuickDBD-export (2)](https://user-images.githubusercontent.com/82190357/137862833-0c838645-077a-4a9a-96a5-e5932e9285ed.jpg)
 
+<br>
 
 ### Data Sources
 - U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE
