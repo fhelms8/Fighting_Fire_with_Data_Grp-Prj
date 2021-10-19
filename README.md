@@ -48,9 +48,9 @@
 
 ## About the Project
 
-The Texas Outdoors and Natue Department has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
+The Texas Outdoors and Nature Department has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
 
-Our goal is to develop a web application that will provide a data overview a set of results based on historical data that can be used as a resource to set priorities in prevention planning of wildfires in Texas. 
+Our goal is to develop a web application that will provide a data overview and a set of results based on historical data that can be used as a resource to set priorities in prevention planning of wildfires in Texas. 
 
 ## Considerations
 - Education and Marketing: Which audience is best suited to receive wildfire prevention education?
@@ -76,20 +76,23 @@ Our goal is to develop a web application that will provide a data overview a set
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### ETL
-Pandas Jupyter Notebook JSON CSV xxxxxxxxxxxxxxx
+One of the biggest challenges during  the ETL process for this project was working with a dataset that consisted of nearly 2 millions records. Pandas and  Jupyter Notebook were utilized to downscale the dataset and create dataframes that would eventually be used to create data tables in the postgres database. 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Visualizations
-Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action.
+Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action. Javascript, Plotly, and Chart.js were used to create the interactive maps and charts that are used on the dashboard. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Dashboard
-Bootstrap Chart.js xxxxxxxxxxxxxxxxxxx
+The Dashboard was constructed with Bootstrap and HTML. Focus was delivering an application that would deliver required information through a visually appealing and  user-friendly interface. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Deployment
-Flask Api Heroku PostgreSQL xxxxxxxxxxxxx
+A Python Flask App was written to facilitate the retrieval of data from the postgres database that users requested on the dashboard. It was then deployed using Heroku to create a fully functional Web App.    
+
 
 <br>
 <br>
