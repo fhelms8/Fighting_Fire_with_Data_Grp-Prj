@@ -130,7 +130,7 @@ optionChanged();
 
 // plot drought and moisture data from The Living Blended Drought Product (LBDP)
 d3.json(paleoData).then(data => {
-    // console.log('paleo', data);
+    console.log('paleo', data);
     let newData = [];
     let labels = [];
     let d0 = [];
@@ -143,19 +143,20 @@ d3.json(paleoData).then(data => {
     let w2 = [];
     let w3 = [];
     let w4 = [];
-    for (let a=1992;a<2016;a++) {
-        newData.push(data[a]);
-        labels.push(data['DATE'][a]);
-        d0.push(data['D0'][a]);
-        d1.push(data['D1'][a]);
-        d2.push(data['D2'][a]);
-        d3.push(data['D3'][a]);
-        d4.push(data['D4'][a]);
-        w0.push(-data['W0'][a]);
-        w1.push(-data['W1'][a]);
-        w2.push(-data['W2'][a]);
-        w3.push(-data['W3'][a]);
-        w4.push(-data['W4'][a]);
+    for (let a=0;a<data.length;a++) {
+        curData = data[a];
+        newData.push(curData);
+        labels.push(curData['DATE']);
+        d0.push(curData['D0']);
+        d1.push(curData['D1']);
+        d2.push(curData['D2']);
+        d3.push(curData['D3']);
+        d4.push(curData['D4']);
+        w0.push(-curData['W0']);
+        w1.push(-curData['W1']);
+        w2.push(-curData['W2']);
+        w3.push(-curData['W3']);
+        w4.push(-curData['W4']);
     }
     // console.log(d0);
 
@@ -261,19 +262,20 @@ d3.json(spiData).then(data => {
     let w2 = [];
     let w3 = [];
     let w4 = [];
-    for (let a=1164;a<1452;a++) {
-        newData.push(data[a]);
-        labels.push(data['DATE'][a]);
-        d0.push(data['D0'][a]);
-        d1.push(data['D1'][a]);
-        d2.push(data['D2'][a]);
-        d3.push(data['D3'][a]);
-        d4.push(data['D4'][a]);
-        w0.push(-data['W0'][a]);
-        w1.push(-data['W1'][a]);
-        w2.push(-data['W2'][a]);
-        w3.push(-data['W3'][a]);
-        w4.push(-data['W4'][a]);
+    for (let a=0;a<data.length;a++) {
+        curData = data[a];
+        newData.push(curData);
+        labels.push(curData['DATE']);
+        d0.push(curData['D0']);
+        d1.push(curData['D1']);
+        d2.push(curData['D2']);
+        d3.push(curData['D3']);
+        d4.push(curData['D4']);
+        w0.push(-curData['W0']);
+        w1.push(-curData['W1']);
+        w2.push(-curData['W2']);
+        w3.push(-curData['W3']);
+        w4.push(-curData['W4']);
     }
     // console.log(newData);
 
