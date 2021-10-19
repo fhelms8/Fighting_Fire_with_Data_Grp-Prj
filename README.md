@@ -14,23 +14,27 @@
 
 
 
-#                                                               Fighting Fire with Data 
+#                                                             Fighting Fire with Data 
 
 
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#Considerations">Considerations</a></li>
     <li>
-    <a href="#Process">Process</a></li?
-        <ul>
-          <li><a href="#ETL">ETL</a></li>
-          <li><a href="#Visualizations">Visualizations</a></li>
-          <li><a href="#Dashboard">Dashboard</a></li>
-          <li><a href="#Deployment">Deployment</a></li>
-        </ul>
+      <a href="#about-the-project">About The Project</a></li>
+      <ul>
+        <li><a href="#Considerations">Considerations</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#Process">Process</a>
+      <ul>
+        <li><a href="#ETL">ETL</a></li>
+        <li><a href="#Visualizations">Visualizations</a></li>
+        <li><a href="#Dashboard">Dashboard</a></li>
+        <li><a href="#Deployment">Deployment</a></li>
+      </ul>
     </li>
     <li><a href="#Data-Sources">Data Sources</a></li>
     <li><a href="#Tools">Tools</a></li>
@@ -44,9 +48,9 @@
 
 ## About the Project
 
-The Texas Parks and Wildlife's Fire Management Division has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
+The Texas Outdoors and Nature Department has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
 
-The goal of the project is to provide a consistent, comparable set of scientific results to be used as a foundation for wildfire mitigation and prevention planning across Texas. Results of the assessment can be used to help prioritize areas in the state where tactical analyses, community interaction and education, or mitigation treatments might be necessary to reduce risk from wildfires. -tamu
+Our goal is to develop a web application that will provide a data overview and a set of results based on historical data that can be used as a resource to set priorities in prevention planning of wildfires in Texas. 
 
 ## Considerations
 - Education and Marketing: Which audience is best suited to receive wildfire prevention education?
@@ -72,20 +76,23 @@ The goal of the project is to provide a consistent, comparable set of scientific
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### ETL
-Pandas Jupyter Notebook JSON CSV xxxxxxxxxxxxxxx
+One of the biggest challenges during  the ETL process for this project was working with a dataset that consisted of nearly 2 million records. Pandas and Jupyter Notebook were utilized to downscale the dataset and create dataframes that would eventually be used to create data tables in the postgres database. 
+
+<p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Visualizations
-Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action.
+Through the use of data visualizations, large volumes of data can be readily transformed into comprehensible information to assess high risk areas and help prioritize preventive action. Javascript, Plotly, and Chart.js were used to create the interactive maps and charts that are used in the dashboard. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Dashboard
-Bootstrap Chart.js xxxxxxxxxxxxxxxxxxx
+The Dashboard was constructed with Bootstrap and HTML. Focus was on delivering an application that would deliver required information through a visually appealing and  user-friendly interface. 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Deployment
-Flask Api Heroku PostgreSQL xxxxxxxxxxxxx
+A Python Flask App was written to facilitate the retrieval of data in the postgres database coming from user requests via the dashboard. It was then deployed using Heroku to create a fully functional Web App.    
+
 
 <br>
 <br>
@@ -100,16 +107,16 @@ Flask Api Heroku PostgreSQL xxxxxxxxxxxxx
 <b>
 
 
-![Screenshot_2](https://user-images.githubusercontent.com/82190357/137281299-81037403-39f6-4d31-bdc9-b2740cc2330a.png)
+![QuickDBD-export (2)](https://user-images.githubusercontent.com/82190357/137862833-0c838645-077a-4a9a-96a5-e5932e9285ed.jpg)
 
+<br>
 
 ### Data Sources
 - U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE
 - Drought.gov
-- xxxx
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<br>
 <br>
 
 ### Tools
@@ -121,15 +128,15 @@ Flask Api Heroku PostgreSQL xxxxxxxxxxxxx
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 <br>
-<br>
 
 
 ![original (2)](https://user-images.githubusercontent.com/82190357/137583931-03c513ea-a48b-441b-be67-ff8462385408.jpg)
 
 
-
+<br>
+  
 ### Team
-Dillon Carter ---|--- Felecia Helms ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- Taylor Lyons
+[Dillon Carter](https://github.com/rb25s13) ---|--- [Felecia Helms](https://github.com/fhelms8) ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- [Taylor Lyons](https://github.com/taylorsyde)
   
   <p align="right">(<a href="#top">back to top</a>)</p>
 
