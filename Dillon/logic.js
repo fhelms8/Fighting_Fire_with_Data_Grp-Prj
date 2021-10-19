@@ -1,7 +1,15 @@
 // data sources
-let paleoData = d3.json('./PALEO-texas.json');
-let spiData = d3.json('./SPI-texas.json');
+let paleoData = d3.json('./PALEO-tx.json');
+let spiData = d3.json('./SPI-tx.json');
 let fireData = d3.csv('../fires_clean.csv');
+let fbyData = d3.csv('./fires_by_year.csv')
+let fby = [];
+fbyData.then(data => {
+    for (let z=0;z<(data.length);z++) {
+        fby.push(data[z].TOTAL_COUNT / 200)
+    }
+})
+// console.log(fby);
 
 // get the list of years and causes for the dropdowns
 let selYear = document.getElementById('selFireYear')
@@ -40,7 +48,7 @@ let selectM = d3.select('.mapContainer');
 // function to update map based on dropdown selection
 function optionChanged(sel) {
     let option = sel;
-    console.log(d3.select('#selFireYear').text());
+    // console.log(d3.select('#selFireYear').text());
 
     $('#map').remove();
     selectM.append('div').attr('id', 'map');
@@ -122,7 +130,7 @@ optionChanged();
 
 // plot drought and moisture data from The Living Blended Drought Product (LBDP)
 paleoData.then(data => {
-    console.log('paleo', data);
+    // console.log('paleo', data);
     let newData = [];
     let labels = [];
     let d0 = [];
@@ -137,23 +145,24 @@ paleoData.then(data => {
     let w4 = [];
     for (let a=1992;a<2016;a++) {
         newData.push(data[a]);
-        labels.push(data[a].DATE);
-        d0.push(data[a].D0);
-        d1.push(data[a].D1);
-        d2.push(data[a].D2);
-        d3.push(data[a].D3);
-        d4.push(data[a].D4);
-        w0.push(-data[a].W0);
-        w1.push(-data[a].W1);
-        w2.push(-data[a].W2);
-        w3.push(-data[a].W3);
-        w4.push(-data[a].W4);
+        labels.push(data['DATE'][a]);
+        d0.push(data['D0'][a]);
+        d1.push(data['D1'][a]);
+        d2.push(data['D2'][a]);
+        d3.push(data['D3'][a]);
+        d4.push(data['D4'][a]);
+        w0.push(-data['W0'][a]);
+        w1.push(-data['W1'][a]);
+        w2.push(-data['W2'][a]);
+        w3.push(-data['W3'][a]);
+        w4.push(-data['W4'][a]);
     }
     // console.log(d0);
 
     const mapData0 = {
         labels: labels,
-        datasets: [{
+        datasets: [
+    {
           label: 'Abnormally Dry',
           backgroundColor: 'rgb(253, 255, 0)',
           data: d0,
@@ -202,6 +211,16 @@ paleoData.then(data => {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
+    },
+    {
+        type: 'line',
+        pointStyle: 'dash',
+        label: 'Fires per Year',
+        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        fill: true,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1,
+        data: fby
     }
     ]
     };
@@ -213,6 +232,9 @@ paleoData.then(data => {
             title: {
               display: true,
               text: 'Drought in Texas from 1992-2015'
+            },
+            legend: {
+                position:'right'
             },
           },
           responsive: true,
@@ -241,23 +263,24 @@ spiData.then(data => {
     let w4 = [];
     for (let a=1164;a<1452;a++) {
         newData.push(data[a]);
-        labels.push(data[a].DATE);
-        d0.push(data[a].D0);
-        d1.push(data[a].D1);
-        d2.push(data[a].D2);
-        d3.push(data[a].D3);
-        d4.push(data[a].D4);
-        w0.push(-data[a].W0);
-        w1.push(-data[a].W1);
-        w2.push(-data[a].W2);
-        w3.push(-data[a].W3);
-        w4.push(-data[a].W4);
+        labels.push(data['DATE'][a]);
+        d0.push(data['D0'][a]);
+        d1.push(data['D1'][a]);
+        d2.push(data['D2'][a]);
+        d3.push(data['D3'][a]);
+        d4.push(data['D4'][a]);
+        w0.push(-data['W0'][a]);
+        w1.push(-data['W1'][a]);
+        w2.push(-data['W2'][a]);
+        w3.push(-data['W3'][a]);
+        w4.push(-data['W4'][a]);
     }
     // console.log(newData);
 
     const mapData = {
         labels: labels,
-        datasets: [{
+        datasets: [
+    {
           label: 'Abnormally Dry',
           backgroundColor: 'rgb(253, 255, 0)',
           data: d0,
@@ -306,7 +329,16 @@ spiData.then(data => {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
-    }
+    },
+    // {
+    //     type: 'line',
+    //     label: 'Fires per Year',
+    //     backgroundColor: 'rgba(75, 192, 192, 0.5)',
+    //     fill: true,
+    //     borderColor: 'rgb(75, 192, 192)',
+    //     tension: 0.1,
+    //     data: fby
+    // }
     ]
     };
     const config = {
@@ -317,6 +349,9 @@ spiData.then(data => {
             title: {
               display: true,
               text: 'Drought in Texas from 1992-2015'
+            },
+            legend: {
+                position:'right'
             },
           },
           responsive: true,

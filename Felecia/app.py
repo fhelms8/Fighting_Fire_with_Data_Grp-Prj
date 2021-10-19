@@ -1,44 +1,38 @@
-from threading import active_count
-import pandas as pd
-import datetime as dt
-import numpy as np
-import sqlalchemy
-from sqlalchemy.ext.automap import automap_base
-from sqlalchemy.orm import Session
-from sqlalchemy import create_engine, func
-from flask import Flask, json, jsonify
+# import necessary libraries
+# from models import create_classes
+import os
+from flask import (
+    Flask,
+    render_template,
+    jsonify,
+    request,
+    redirect)
 
-##################
-# Database Setup
-##################
-
-
-connection_url = 'postgresql+psycopg2://postgres:postgre@localhost:5432/postgres'
-engine = create_engine(connection_url)
-
-engine.table_names()
-
-# Reflect an existing database into a new model
-Base = automap_base()
-
-# Reflect the tables
-Base.prepare(engine, reflect=True)
-
-# Table reference
-# Measurement = Base.classes.measurement
-# Station = Base.classes.station
-
-# Open/create session
-session = Session(engine)
-
-##################
+#################################################
 # Flask Setup
-##################
+#################################################
 app = Flask(__name__)
 
-##################
-# Flask Routes
-##################
+#################################################
+# Database Setup
+#################################################
+
+from flask_sqlalchemy import SQLAlchemy
+
+
+try:
+    DATABASE_URL = os.environ['DATABASE_URL']
+except KeyError:
+    db_uri = f'postgres://{postgre}:{postgre}@localhost:5432/postgres'
+
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://wuwhdonjmuwltr:5c09580d54803eb88e33ccc1aedefe563bb18a9e74a15c9fb6c1f77bb5c0cb74@ec2-3-226-165-74.compute-1.amazonaws.com:5432/dcdmoigkf6n09u'
+
+db = SQLAlchemy(app)
+
+@app.route("/")
+def home():
+    
+    return render_template("index2.html")
 
 
 
