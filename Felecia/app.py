@@ -42,15 +42,6 @@ def paleo():
     p_results = data_info.get_paleo()
     return jsonify(p_results)
 
-@app.route("/api/acres_cause")
-def acres_cause():
-    AC_results = data_info.get_acres_cause()
-    return jsonify(AC_results)
-
-@app.route("/api/acres_class")
-def acres_class():
-    Aclass_results = data_info.get_acres_class()
-    return jsonify(Aclass_results)
 
 @app.route("/api/acres_year")
 def acres_year():
@@ -62,10 +53,6 @@ def texas_fires():
     TF_results = data_info.get_texas_fires()
     return jsonify(TF_results)
 
-@app.route("/api/years")
-def years():
-    year_results = data_info.get_years()
-    return jsonify(year_results)
 
 if __name__ == "__main__":
     app.run()

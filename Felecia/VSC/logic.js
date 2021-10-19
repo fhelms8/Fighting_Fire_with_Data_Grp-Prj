@@ -1,25 +1,66 @@
-let url = 'data/fires_clean2.csv';
-let paleoUrl = 'data/PALEO-texas.json';
-let spiUrl = '/api/spi';
-let usdmUrl = 'data/USDM-texas.json';
+// data sources
+const paleoData = '/api/paleo';
+const spiData = '/api/spi';
+const fireData = "/api/texas_fires";
+const fbyData = '/api/acres_year';
+let fby = [];
+d3.json(fbyData).then(data => {
+    for (let z=0;z<(data.length);z++) {
+        fby.push(data[z].TOTAL_COUNT / 200)
+    }
+})
+// console.log(fby);
 
+// get the list of years and causes for the dropdowns
+let selYear = document.getElementById('selFireYear')
+let selCause = document.getElementById('selFireCause')
+let yearList = [];
+let causeList = [];
+d3.json(fireData).then(get => {
+    for (let i=0;i<get.length;i++) {
+        let year = parseInt(get[i].FIRE_YEAR);
+        let cause = get[i].STAT_CAUSE_DESCR;
+        if (yearList.indexOf(year) === -1) yearList.push(year);
+        if (causeList.indexOf(cause) === -1) causeList.push(cause);
+    }
+    let sortedYearList = yearList.sort();
+    let sortedCauseList = causeList.sort();
 
+    for(let j = 0; j < sortedYearList.length; j++) {
+        let opt = sortedYearList[j];
+        let el = document.createElement('option');
+        el.textContent = opt;
+        el.value = opt;
+        selYear.appendChild(el);
+    }
+    for(let k = 0; k < sortedCauseList.length; k++) {
+        let opt = sortedCauseList[k];
+        let el = document.createElement('option');
+        el.textContent = opt;
+        el.value = opt;
+        selCause.appendChild(el);
+    }
+});
 
 
 let selectM = d3.select('.mapContainer');
 
+// function to update map based on dropdown selection
 function optionChanged(sel) {
+    let option = sel;
+    // console.log(d3.select('#selFireYear').text());
+
     $('#map').remove();
     selectM.append('div').attr('id', 'map');
 
     let myMap = L.map('map', {
-        center: [31.53, -99.65],
+        center: [31.14, -100.27],
         zoom: 6,
     });
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(myMap);
-
+    
     let legend = L.control({ position: "bottomright" });
     legend.onAdd = () => {
         let div = L.DomUtil.create("div", "info legend");
@@ -27,8 +68,8 @@ function optionChanged(sel) {
             "<div class=\"labels\">" +
             "</div>";
         div.innerHTML = legendInfo;
-        let categories = ['A', 'B', 'C', 'D', 'E', 'F', 'G'];
-        let colors = ['#a3f600', '#dcf400', '#f7db11', '#fdb72a', '#fca35d', '#ff5f65', '#ff020c'];
+        let categories = ['A','B','C','D','E', 'F', 'G'];
+        let colors = ['#a3f600','#dcf400','#f7db11','#fdb72a','#fca35d','#ff5f65', '#ff020c'];
         let labels = [];
         categories.forEach((a, index) => {
             labels.push("<li><div style=\"background-color: " + colors[index] + "\"></div>&nbsp;&nbsp;" + categories[index] + "</li>");
@@ -38,11 +79,10 @@ function optionChanged(sel) {
     };
     legend.addTo(myMap);
 
-
-    d3.csv(url).then(data => {
+    d3.json(fireData).then(data => {
         // console.log(data);
-
-        for (let i = 0; i < data.length; i++) {
+        
+        for (let i=0;i<data.length;i++) {
             let location = [data[i].LATITUDE, data[i].LONGITUDE];
             let year = data[i].FIRE_YEAR;
             let fireSize = data[i].FIRE_SIZE;
@@ -50,7 +90,7 @@ function optionChanged(sel) {
             let cause = data[i].STAT_CAUSE_DESCR;
             let color = '';
             if (fireSizeClass == 'A') {
-                color = '#a3f600';
+              color = '#a3f600';
             } else if (fireSizeClass == 'B') {
                 color = '#dcf400';
             } else if (fireSizeClass == 'C') {
@@ -62,7 +102,7 @@ function optionChanged(sel) {
             } else if (fireSizeClass == 'F') {
                 color = '#ff5f65';
             } else {
-                color = '#ff020c';
+              color = '#ff020c';
             }
             if (year == sel) {
                 L.circle(location, {
@@ -88,165 +128,9 @@ function optionChanged(sel) {
 }
 optionChanged();
 
-
-
-// const labels = [
-//   'January',
-//   'February',
-//   'March',
-//   'April',
-//   'May',
-//   'June',
-// ];
-// const data = {
-//   labels: labels,
-//   datasets: [{
-//     label: 'My First dataset',
-//     backgroundColor: 'rgb(255, 99, 132)',
-//     borderColor: 'rgb(255, 99, 132)',
-//     data: [0, 10, 5, 2, 20, 30, 45],
-// }]
-// };
-// const config = {
-//     type: 'line',
-//     data: data,
-//     options: {}
-// };
-// let myChart = new Chart(
-//     document.getElementById('myChart'),
-//     config
-// );
-
-
-// {"D0":7.8,"D1":0.4,"D2":0,"D3":0,"D4":0,"-9":0,"W0":62.3,"W1":38.5,"W2":11.1,"W3":0.8,"W4":0}
-
-// d3.json(paleoUrl).then(data => {
-//     console.log(data);
-//     let newData = [];
-//     let labels = [];
-//     let d0 = [];
-//     let d1 = [];
-//     let d2 = [];
-//     let d3 = [];
-//     let d4 = [];
-//     let w0 = [];
-//     let w1 = [];
-//     let w2 = [];
-//     let w3 = [];
-//     let w4 = [];
-//     for (let a=1320;a<1452;a++) {
-//         newData.push(data[a]);
-//         labels.push(data[a].MapDate);
-//         d0.push(data[a].D0);
-//         d1.push(data[a].D1);
-//         d2.push(data[a].D2);
-//         d3.push(data[a].D3);
-//         d4.push(data[a].D4);
-//         w0.push(data[a].W0);
-//         w1.push(data[a].W1);
-//         w2.push(data[a].W2);
-//         w3.push(data[a].W3);
-//         w4.push(data[a].W4);
-//     }
-//     console.log(d0);
-
-//     const mapData = {
-//         labels: labels,
-//         datasets: [{
-//           label: 'Abnormally Dry',
-//           backgroundColor: 'rgb(253, 255, 0)',
-//           data: d0,
-//     },
-//     {
-//         label: 'Moderate Drought',
-//         backgroundColor: 'rgb(255, 204, 153)',
-//         data: d1,
-//     },
-//     {
-//         label: 'Severe Drought',
-//         backgroundColor: 'rgb(255, 102, 0)',
-//         data: d2,
-//     },
-//     {
-//         label: 'Extreme Drought',
-//         backgroundColor: 'rgb(255, 0, 0)',
-//         data: d3,
-//     },
-//     {
-//         label: 'Exceptional Drought',
-//         backgroundColor: 'rgb(102, 0, 0)',
-//         data: d4,
-//     }
-//     ]
-//     };
-//     const config = {
-//         type: 'bar',
-//         data: mapData,
-//         options: {
-//           plugins: {
-//             title: {
-//               display: true,
-//               text: 'Drought in Texas from 2005-2015'
-//             },
-//           },
-//           responsive: true,
-//         }
-//     };
-//     let myChart = new Chart(
-//           document.getElementById('myChart'),
-//           config
-//     );
-
-//     const mapData2 = {
-//         labels: labels,
-//         datasets: [{
-//           label: 'Abnormally Wet',
-//           backgroundColor: 'rgb(170, 255, 85)',
-//           data: w0,
-//     },
-//     {
-//         label: 'Moderate Wet',
-//         backgroundColor: 'rgb(1, 255, 255)',
-//         data: w1,
-//     },
-//     {
-//         label: 'Severe Wet',
-//         backgroundColor: 'rgb(0, 170, 255)',
-//         data: w2,
-//     },
-//     {
-//         label: 'Extreme Wet',
-//         backgroundColor: 'rgb(0, 0, 255)',
-//         data: w3,
-//     },
-//     {
-//         label: 'Exceptional Wet',
-//         backgroundColor: 'rgb(0, 0, 170)',
-//         data: w4,
-//     }
-//     ]
-//       };
-//     const config2 = {
-//     type: 'bar',
-//     data: mapData2,
-//     options: {
-//         plugins: {
-//         title: {
-//             display: true,
-//             text: 'Moisture in Texas from 2005-2015'
-//         },
-//         },
-//         responsive: true,
-//     }
-//     };
-//     let myChart2 = new Chart(
-//         document.getElementById('myChart2'),
-//         config2
-//     );
-// });
-
-d3.json(spiUrl).then(data => {
-    console.log(data);
+// plot drought and moisture data from The Living Blended Drought Product (LBDP)
+d3.json(paleoData).then(data => {
+    // console.log('paleo', data);
     let newData = [];
     let labels = [];
     let d0 = [];
@@ -259,118 +143,111 @@ d3.json(spiUrl).then(data => {
     let w2 = [];
     let w3 = [];
     let w4 = [];
-    for (let a = 1320; a < 1452; a++) {
+    for (let a=1992;a<2016;a++) {
         newData.push(data[a]);
-        labels.push(data[a].DATE);
-        d0.push(data[a].D0);
-        d1.push(data[a].D1);
-        d2.push(data[a].D2);
-        d3.push(data[a].D3);
-        d4.push(data[a].D4);
-        w0.push(data[a].W0);
-        w1.push(data[a].W1);
-        w2.push(data[a].W2);
-        w3.push(data[a].W3);
-        w4.push(data[a].W4);
+        labels.push(data['DATE'][a]);
+        d0.push(data['D0'][a]);
+        d1.push(data['D1'][a]);
+        d2.push(data['D2'][a]);
+        d3.push(data['D3'][a]);
+        d4.push(data['D4'][a]);
+        w0.push(-data['W0'][a]);
+        w1.push(-data['W1'][a]);
+        w2.push(-data['W2'][a]);
+        w3.push(-data['W3'][a]);
+        w4.push(-data['W4'][a]);
     }
-    console.log(newData);
+    // console.log(d0);
 
-    const mapData = {
+    const mapData0 = {
         labels: labels,
-        datasets: [{
-                label: 'Abnormally Dry',
-                backgroundColor: 'rgb(253, 255, 0)',
-                data: d0,
-            },
-            {
-                label: 'Moderate Drought',
-                backgroundColor: 'rgb(255, 204, 153)',
-                data: d1,
-            },
-            {
-                label: 'Severe Drought',
-                backgroundColor: 'rgb(255, 102, 0)',
-                data: d2,
-            },
-            {
-                label: 'Extreme Drought',
-                backgroundColor: 'rgb(255, 0, 0)',
-                data: d3,
-            },
-            {
-                label: 'Exceptional Drought',
-                backgroundColor: 'rgb(102, 0, 0)',
-                data: d4,
-            }
-        ]
+        datasets: [
+    {
+          label: 'Abnormally Dry',
+          backgroundColor: 'rgb(253, 255, 0)',
+          data: d0,
+    },
+    {
+        label: 'Moderate Drought',
+        backgroundColor: 'rgb(255, 204, 153)',
+        data: d1,
+    },
+    {
+        label: 'Severe Drought',
+        backgroundColor: 'rgb(255, 102, 0)',
+        data: d2,
+    },
+    {
+        label: 'Extreme Drought',
+        backgroundColor: 'rgb(255, 0, 0)',
+        data: d3,
+    },
+    {
+        label: 'Exceptional Drought',
+        backgroundColor: 'rgb(102, 0, 0)',
+        data: d4,
+    },
+    {
+          label: 'Abnormally Wet',
+          backgroundColor: 'rgb(170, 255, 85)',
+          data: w0,
+    },
+    {
+        label: 'Moderate Wet',
+        backgroundColor: 'rgb(1, 255, 255)',
+        data: w1,
+    },
+    {
+        label: 'Severe Wet',
+        backgroundColor: 'rgb(0, 170, 255)',
+        data: w2,
+    },
+    {
+        label: 'Extreme Wet',
+        backgroundColor: 'rgb(0, 0, 255)',
+        data: w3,
+    },
+    {
+        label: 'Exceptional Wet',
+        backgroundColor: 'rgb(0, 0, 170)',
+        data: w4,
+    },
+    {
+        type: 'line',
+        pointStyle: 'dash',
+        label: 'Fires per Year',
+        backgroundColor: 'rgba(75, 192, 192, 0.5)',
+        fill: true,
+        borderColor: 'rgb(75, 192, 192)',
+        tension: 0.1,
+        data: fby
+    }
+    ]
     };
-    const config = {
+    const config0 = {
         type: 'bar',
-        data: mapData,
+        data: mapData0,
         options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Drought in Texas from 2005-2015'
-                },
+          plugins: {
+            title: {
+              display: true,
+              text: 'Drought in Texas from 1992-2015'
             },
-            responsive: true,
+            legend: {
+                position:'right'
+            },
+          },
+          responsive: true,
         }
     };
-    let myChart = new Chart(
-        document.getElementById('myChart'),
-        config
-    );
-
-    const mapData2 = {
-        labels: labels,
-        datasets: [{
-                label: 'Abnormally Wet',
-                backgroundColor: 'rgb(170, 255, 85)',
-                data: w0,
-            },
-            {
-                label: 'Moderate Wet',
-                backgroundColor: 'rgb(1, 255, 255)',
-                data: w1,
-            },
-            {
-                label: 'Severe Wet',
-                backgroundColor: 'rgb(0, 170, 255)',
-                data: w2,
-            },
-            {
-                label: 'Extreme Wet',
-                backgroundColor: 'rgb(0, 0, 255)',
-                data: w3,
-            },
-            {
-                label: 'Exceptional Wet',
-                backgroundColor: 'rgb(0, 0, 170)',
-                data: w4,
-            }
-        ]
-    };
-    const config2 = {
-        type: 'bar',
-        data: mapData2,
-        options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Moisture in Texas from 2005-2015'
-                },
-            },
-            responsive: true,
-        }
-    };
-    let myChart2 = new Chart(
-        document.getElementById('myChart2'),
-        config2
+    let myChart0 = new Chart(
+          document.getElementById('myChart0'),
+          config0
     );
 });
 
-d3.json(usdmUrl).then(data => {
+// plot drought and moisture data from The Standardized Precipitation Index (SPI)
+d3.json(spiData).then(data => {
     // console.log(data);
     let newData = [];
     let labels = [];
@@ -384,66 +261,104 @@ d3.json(usdmUrl).then(data => {
     let w2 = [];
     let w3 = [];
     let w4 = [];
-    for (let a = 302; a < 876; a++) {
+    for (let a=1164;a<1452;a++) {
         newData.push(data[a]);
-        labels.push(data[a].MapDate);
-        d0.push(data[a].D0);
-        d1.push(data[a].D1);
-        d2.push(data[a].D2);
-        d3.push(data[a].D3);
-        d4.push(data[a].D4);
-        w0.push(data[a].W0);
-        w1.push(data[a].W1);
-        w2.push(data[a].W2);
-        w3.push(data[a].W3);
-        w4.push(data[a].W4);
+        labels.push(data['DATE'][a]);
+        d0.push(data['D0'][a]);
+        d1.push(data['D1'][a]);
+        d2.push(data['D2'][a]);
+        d3.push(data['D3'][a]);
+        d4.push(data['D4'][a]);
+        w0.push(-data['W0'][a]);
+        w1.push(-data['W1'][a]);
+        w2.push(-data['W2'][a]);
+        w3.push(-data['W3'][a]);
+        w4.push(-data['W4'][a]);
     }
-    console.log(data[0]);
+    // console.log(newData);
 
-    const mapData3 = {
+    const mapData = {
         labels: labels,
-        datasets: [{
-                label: 'Abnormally Dry',
-                backgroundColor: 'rgb(253, 255, 0)',
-                data: d0,
-            },
-            {
-                label: 'Moderate Drought',
-                backgroundColor: 'rgb(255, 204, 153)',
-                data: d1,
-            },
-            {
-                label: 'Severe Drought',
-                backgroundColor: 'rgb(255, 102, 0)',
-                data: d2,
-            },
-            {
-                label: 'Extreme Drought',
-                backgroundColor: 'rgb(255, 0, 0)',
-                data: d3,
-            },
-            {
-                label: 'Exceptional Drought',
-                backgroundColor: 'rgb(102, 0, 0)',
-                data: d4,
-            }
-        ]
+        datasets: [
+    {
+          label: 'Abnormally Dry',
+          backgroundColor: 'rgb(253, 255, 0)',
+          data: d0,
+    },
+    {
+        label: 'Moderate Drought',
+        backgroundColor: 'rgb(255, 204, 153)',
+        data: d1,
+    },
+    {
+        label: 'Severe Drought',
+        backgroundColor: 'rgb(255, 102, 0)',
+        data: d2,
+    },
+    {
+        label: 'Extreme Drought',
+        backgroundColor: 'rgb(255, 0, 0)',
+        data: d3,
+    },
+    {
+        label: 'Exceptional Drought',
+        backgroundColor: 'rgb(102, 0, 0)',
+        data: d4,
+    },
+    {
+          label: 'Abnormally Wet',
+          backgroundColor: 'rgb(170, 255, 85)',
+          data: w0,
+    },
+    {
+        label: 'Moderate Wet',
+        backgroundColor: 'rgb(1, 255, 255)',
+        data: w1,
+    },
+    {
+        label: 'Severe Wet',
+        backgroundColor: 'rgb(0, 170, 255)',
+        data: w2,
+    },
+    {
+        label: 'Extreme Wet',
+        backgroundColor: 'rgb(0, 0, 255)',
+        data: w3,
+    },
+    {
+        label: 'Exceptional Wet',
+        backgroundColor: 'rgb(0, 0, 170)',
+        data: w4,
+    },
+    // {
+    //     type: 'line',
+    //     label: 'Fires per Year',
+    //     backgroundColor: 'rgba(75, 192, 192, 0.5)',
+    //     fill: true,
+    //     borderColor: 'rgb(75, 192, 192)',
+    //     tension: 0.1,
+    //     data: fby
+    // }
+    ]
     };
     const config = {
         type: 'bar',
-        data: mapData3,
+        data: mapData,
         options: {
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'Drought in Texas from 2005-2015'
-                },
+          plugins: {
+            title: {
+              display: true,
+              text: 'Drought in Texas from 1992-2015'
             },
-            responsive: true,
+            legend: {
+                position:'right'
+            },
+          },
+          responsive: true,
         }
     };
-    let myChart3 = new Chart(
-        document.getElementById('myChart3'),
-        config
+    let myChart = new Chart(
+          document.getElementById('myChart'),
+          config
     );
 });
