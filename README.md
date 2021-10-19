@@ -128,13 +128,13 @@ A Python Flask App was written to facilitate the retrieval of data in the postgr
   <p align="right">(<a href="#top">back to top</a>)</p>
 
 <br>
-<br>
 
 
 ![original (2)](https://user-images.githubusercontent.com/82190357/137583931-03c513ea-a48b-441b-be67-ff8462385408.jpg)
 
 
-
+<br>
+  
 ### Team
 [Dillon Carter](https://github.com/rb25s13) ---|--- [Felecia Helms](https://github.com/fhelms8) ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- [Taylor Lyons](https://github.com/taylorsyde)
   
