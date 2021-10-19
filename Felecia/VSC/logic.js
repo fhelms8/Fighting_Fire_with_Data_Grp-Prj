@@ -1,6 +1,6 @@
 let url = 'data/fires_clean2.csv';
 let paleoUrl = 'data/PALEO-texas.json';
-let spiUrl = 'data/SPI-texas.json';
+let spiUrl = '/api/spi';
 let usdmUrl = 'data/USDM-texas.json';
 
 
