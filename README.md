@@ -21,16 +21,20 @@
 <details>
   <summary>Table of Contents</summary>
   <ol>
-    <li><a href="#about-the-project">About The Project</a></li>
-    <li><a href="#Considerations">Considerations</a></li>
     <li>
-    <a href="#Process">Process</a></li?
-        <ul>
-          <li><a href="#ETL">ETL</a></li>
-          <li><a href="#Visualizations">Visualizations</a></li>
-          <li><a href="#Dashboard">Dashboard</a></li>
-          <li><a href="#Deployment">Deployment</a></li>
-        </ul>
+      <a href="#about-the-project">About The Project</a></li>
+      <ul>
+        <li><a href="#Considerations">Considerations</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#Process">Process</a>
+      <ul>
+        <li><a href="#ETL">ETL</a></li>
+        <li><a href="#Visualizations">Visualizations</a></li>
+        <li><a href="#Dashboard">Dashboard</a></li>
+        <li><a href="#Deployment">Deployment</a></li>
+      </ul>
     </li>
     <li><a href="#Data-Sources">Data Sources</a></li>
     <li><a href="#Tools">Tools</a></li>
@@ -46,7 +50,7 @@
 
 The Texas Outdoors and Natue Department has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
 
-Our goal is to provide a data overview and ..... to support  consistent, comparable set of scientific results to be used as a foundation for wildfire mitigation and prevention planning across Texas. Results of the assessment can be used to help prioritize areas in the state where tactical analyses, community interaction and education, or mitigation treatments might be necessary to reduce risk from wildfires. -tamu
+Our goal is to develop a web application that will provide a data overview a set of results based on historical data that can be used as a resource to set priorities in prevention planning of wildfires in Texas. 
 
 ## Considerations
 - Education and Marketing: Which audience is best suited to receive wildfire prevention education?
@@ -100,13 +104,13 @@ Flask Api Heroku PostgreSQL xxxxxxxxxxxxx
 <b>
 
 
-![Screenshot_2](https://user-images.githubusercontent.com/82190357/137281299-81037403-39f6-4d31-bdc9-b2740cc2330a.png)
+![QuickDBD-export (2)](https://user-images.githubusercontent.com/82190357/137862833-0c838645-077a-4a9a-96a5-e5932e9285ed.jpg)
 
 
 ### Data Sources
 - U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE
 - Drought.gov
-- xxxx
+
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 <br>
