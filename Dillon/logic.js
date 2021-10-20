@@ -252,14 +252,8 @@ d3.csv(paleoData).then(data => {
 });
 
 // plot drought and moisture data from The Standardized Precipitation Index (SPI)
-<<<<<<< HEAD
 d3.csv(spiData).then(data => {
     // console.log(data);
-=======
-spiData.then(data => {
-    console.log("spi", data);
->>>>>>> 72ab5c7035c1bfa1cc9712995d006b4ac3eaa37a
-    let newData = [];
     let labels = [];
     let d0 = [];
     let d1 = [];
@@ -272,7 +266,6 @@ spiData.then(data => {
     let w3 = [];
     let w4 = [];
     for (let a=0;a<data.length;a++) {
-        newData.push(data[a]);
         labels.push(data[a]['DATE']);
         d0.push(data[a]['D0']);
         d1.push(data[a]['D1']);
