@@ -248,7 +248,7 @@ paleoData.then(data => {
 
 // plot drought and moisture data from The Standardized Precipitation Index (SPI)
 spiData.then(data => {
-    // console.log(data);
+    console.log("spi", data);
     let newData = [];
     let labels = [];
     let d0 = [];
