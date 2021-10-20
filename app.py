@@ -62,6 +62,11 @@ def texas_fires():
     TF_results = data_info.get_texas_fires()
     return jsonify(TF_results)
 
+@app.route("/api/fires_by_year")
+def fires_by_year():
+    fby_results = data_info.get_fires_by_year()
+    return jsonify(fby_results)
+
 @app.route("/api/years")
 def years():
     year_results = data_info.get_years()

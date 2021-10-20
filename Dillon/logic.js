@@ -3,7 +3,7 @@ let paleoData = './static/data/PALEO-tx.csv'
 let spiData = './static/data/SPI-tx.csv'
 let fireData = './static/data/fires_clean.csv'
 let fbyData = './static/data/fires_by_year.csv'
-
+d3.csv(fbyData).then(data => console.log(data));
 // // data sources
 // const paleoData = '/api/paleo';
 // const spiData = '/api/spi';

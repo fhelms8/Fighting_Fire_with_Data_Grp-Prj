@@ -65,4 +65,18 @@ body {
     clear: both;
   }
  
-  
+  select {
+    background-color: inherit;
+  }
+
+  /* select.dropdown-menu {
+    color: black !important;
+  } */
+
+  /* nav {
+    overflow: visible !important;
+  } */
+
+  select#selFireYear.nav-link.dropdown-toggle.dropdown-menu {
+    position: inherit;
+  }

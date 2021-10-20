@@ -52,12 +52,24 @@ def get_acres_year():
 
 def get_texas_fires():
     sql = """
-    Select * from texas_fires
+    Select * from texas_fires;
     """
 
     results_df = pd.read_sql(sql, con=engine)
     TF_results = results_df.to_dict(orient='records')
     return TF_results
+
+def get_fires_by_year():
+    sql = """
+    SELECT COUNT(fire_year), fire_year
+    FROM texas_fires
+    GROUP BY fire_year
+    ORDER BY fire_year ASC;
+    """
+
+    results_df = pd.read_sql(sql, con=engine)
+    fby_results = results_df.to_dict(orient='records')
+    return fby_results
 
 def get_years():
     sql = """

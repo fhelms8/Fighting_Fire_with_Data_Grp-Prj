@@ -2,45 +2,45 @@
 const paleoData = '/api/paleo';
 const spiData = '/api/spi';
 const fireData = "/api/texas_fires";
-const fbyData = '/api/acres_year';
+const fbyData = '/api/fires_by_year';
 let fby = [];
 d3.json(fbyData).then(data => {
     for (let z=0;z<(data.length);z++) {
-        fby.push(data[z].TOTAL_COUNT / 200)
+        fby.push(data[z].count / 200)
     }
 })
 // console.log(fby);
 
 // get the list of years and causes for the dropdowns
-let selYear = document.getElementById('selFireYear')
-let selCause = document.getElementById('selFireCause')
-let yearList = [];
-let causeList = [];
-d3.json(fireData).then(get => {
-    for (let i=0;i<get.length;i++) {
-        let year = parseInt(get[i].FIRE_YEAR);
-        let cause = get[i].STAT_CAUSE_DESCR;
-        if (yearList.indexOf(year) === -1) yearList.push(year);
-        if (causeList.indexOf(cause) === -1) causeList.push(cause);
-    }
-    let sortedYearList = yearList.sort();
-    let sortedCauseList = causeList.sort();
+// let selYear = document.getElementById('selFireYear')
+// let selCause = document.getElementById('selFireCause')
+// let yearList = [];
+// let causeList = [];
+// d3.json(fireData).then(get => {
+//     for (let i=0;i<get.length;i++) {
+//         let year = parseInt(get[i].FIRE_YEAR);
+//         let cause = get[i].STAT_CAUSE_DESCR;
+//         if (yearList.indexOf(year) === -1) yearList.push(year);
+//         if (causeList.indexOf(cause) === -1) causeList.push(cause);
+//     }
+//     let sortedYearList = yearList.sort();
+//     let sortedCauseList = causeList.sort();
 
-    for(let j = 0; j < sortedYearList.length; j++) {
-        let opt = sortedYearList[j];
-        let el = document.createElement('option');
-        el.textContent = opt;
-        el.value = opt;
-        selYear.appendChild(el);
-    }
-    for(let k = 0; k < sortedCauseList.length; k++) {
-        let opt = sortedCauseList[k];
-        let el = document.createElement('option');
-        el.textContent = opt;
-        el.value = opt;
-        selCause.appendChild(el);
-    }
-});
+//     for(let j = 0; j < sortedYearList.length; j++) {
+//         let opt = sortedYearList[j];
+//         let el = document.createElement('option');
+//         el.textContent = opt;
+//         el.value = opt;
+//         selYear.appendChild(el);
+//     }
+//     for(let k = 0; k < sortedCauseList.length; k++) {
+//         let opt = sortedCauseList[k];
+//         let el = document.createElement('option');
+//         el.textContent = opt;
+//         el.value = opt;
+//         selCause.appendChild(el);
+//     }
+// });
 
 
 let selectM = d3.select('.mapContainer');
@@ -80,14 +80,14 @@ function optionChanged(sel) {
     legend.addTo(myMap);
 
     d3.json(fireData).then(data => {
-        // console.log(data);
+        // console.log('firedata',data);
         
         for (let i=0;i<data.length;i++) {
-            let location = [data[i].LATITUDE, data[i].LONGITUDE];
-            let year = data[i].FIRE_YEAR;
-            let fireSize = data[i].FIRE_SIZE;
-            let fireSizeClass = data[i].FIRE_SIZE_CLASS;
-            let cause = data[i].STAT_CAUSE_DESCR;
+            let location = [data[i].latitude, data[i].longitude];
+            let year = data[i].fire_year;
+            let fireSize = data[i].fire_size;
+            let fireSizeClass = data[i].fire_size_class;
+            let cause = data[i].stat_cause_descr;
             let color = '';
             if (fireSizeClass == 'A') {
               color = '#a3f600';
@@ -130,7 +130,7 @@ optionChanged();
 
 // plot drought and moisture data from The Living Blended Drought Product (LBDP)
 d3.json(paleoData).then(data => {
-    console.log('paleo', data);
+    // console.log('paleo', data);
     let newData = [];
     let labels = [];
     let d0 = [];
@@ -146,17 +146,17 @@ d3.json(paleoData).then(data => {
     for (let a=0;a<data.length;a++) {
         curData = data[a];
         newData.push(curData);
-        labels.push(curData['DATE']);
-        d0.push(curData['D0']);
-        d1.push(curData['D1']);
-        d2.push(curData['D2']);
-        d3.push(curData['D3']);
-        d4.push(curData['D4']);
-        w0.push(-curData['W0']);
-        w1.push(-curData['W1']);
-        w2.push(-curData['W2']);
-        w3.push(-curData['W3']);
-        w4.push(-curData['W4']);
+        labels.push(curData['date']);
+        d0.push(curData['d0']);
+        d1.push(curData['d1']);
+        d2.push(curData['d2']);
+        d3.push(curData['d3']);
+        d4.push(curData['d4']);
+        w0.push(-curData['w0']);
+        w1.push(-curData['w1']);
+        w2.push(-curData['w2']);
+        w3.push(-curData['w3']);
+        w4.push(-curData['w4']);
     }
     // console.log(d0);
 
@@ -249,7 +249,7 @@ d3.json(paleoData).then(data => {
 
 // plot drought and moisture data from The Standardized Precipitation Index (SPI)
 d3.json(spiData).then(data => {
-    // console.log(data);
+    // console.log('spi',data);
     let newData = [];
     let labels = [];
     let d0 = [];
@@ -265,17 +265,17 @@ d3.json(spiData).then(data => {
     for (let a=0;a<data.length;a++) {
         curData = data[a];
         newData.push(curData);
-        labels.push(curData['DATE']);
-        d0.push(curData['D0']);
-        d1.push(curData['D1']);
-        d2.push(curData['D2']);
-        d3.push(curData['D3']);
-        d4.push(curData['D4']);
-        w0.push(-curData['W0']);
-        w1.push(-curData['W1']);
-        w2.push(-curData['W2']);
-        w3.push(-curData['W3']);
-        w4.push(-curData['W4']);
+        labels.push(curData['date']);
+        d0.push(curData['d0']);
+        d1.push(curData['d1']);
+        d2.push(curData['d2']);
+        d3.push(curData['d3']);
+        d4.push(curData['d4']);
+        w0.push(-curData['w0']);
+        w1.push(-curData['w1']);
+        w2.push(-curData['w2']);
+        w3.push(-curData['w3']);
+        w4.push(-curData['w4']);
     }
     // console.log(newData);
 

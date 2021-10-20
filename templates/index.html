@@ -37,10 +37,23 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Select Year</a>
-                    <div class="dropdown-menu">
-                        <select id="selFireYear" onchange="optionChanged(this.value)">
+                    <select id="selFireYear" onchange="optionChanged(this.value)" class="nav-link dropdown-toggle dropdown-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <!-- <div class="dropdown-menu">
+                        <select id="selFireYear" onchange="optionChanged(this.value)"> -->
+                            <option>Select Year</option>
+                            <option>1992</option>
+                            <option>1993 </option>
+                            <option>1994</option>
+                            <option>1995 </option>
+                            <option>1996</option>
+                            <option>1997</option>
+                            <option>1998</option>
+                            <option>1999</option>
+                            <option>2000</option>
+                            <option>2001</option>
+                            <option>2002</option>
+                            <option>2003</option>
+                            <option>2004</option>
                             <option>2005</option>
                             <option>2006 </option>
                             <option>2007</option>
@@ -53,13 +66,13 @@
                             <option>2014</option>
                             <option>2015</option>
                         </select>
-                    </div>
+                    <!-- </div> -->
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
-                        aria-expanded="false">Select Cause</a>
-                    <div class="dropdown-menu">
-                        <select id="selFireCause" onchange="optionChanged(this.value)">
+                    <select id="selFireCause" onchange="optionChanged(this.value)" class="nav-link dropdown-toggle dropdown-menu" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                    <!-- <div class="dropdown-menu"> -->
+                        <!-- <select id="selFireCause" onchange="optionChanged(this.value)"> -->
+                            <option>Select Cause</option>
                             <option>Arson</option>
                             <option>Campfire</option>
                             <option>Smoking</option>
@@ -74,7 +87,7 @@
                             <option>Missing/Undefined</option>
                             <option>Structure</option>
                         </select>
-                    </div>
+                    <!-- </div> -->
                 </li>
             </ul>
             </form>
@@ -84,23 +97,19 @@
 
 
 <body>
+    <br />
     <div class="container">
-        <div class="col-lg-8">
-            <div class="mapContainer" style="height: 550px;width: 600px;">
-                <div id="map" class="currentMap">
+        <div class ="row">
+            <div class="col-lg-7">
+                <div class="mapContainer" style="height: 550px;width: 100%;">
+                    <div id="map" class="currentMap">
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4">
-                <div class="column" style="background-color:#1e1f20">
-                    <canvas id="myChart"></canvas>
-                </div>
-                <div class="column" style="background-color:#1e1f20">
-                    <canvas id="myChart2"></canvas>
-                </div>
-                <div class="column" style="background-color:#1e1f20">
-                    <canvas id="myChart3"></canvas>
-                </div>
+            <div class="col-lg-5">
+                        <canvas id="myChart0"></canvas>
+                        <canvas id="myChart"></canvas>
+                        <!-- <canvas id="myChart3"></canvas> -->
             </div>
         </div>
     </div>
