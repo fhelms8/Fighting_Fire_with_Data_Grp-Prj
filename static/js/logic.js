@@ -1,10 +1,10 @@
 // data sources
-let paleoData = d3.json('./PALEO-tx.json');
-let spiData = d3.json('./SPI-tx.json');
-let fireData = d3.csv('../fires_clean.csv');
-let fbyData = d3.csv('./fires_by_year.csv')
+const paleoData = '/api/paleo';
+const spiData = '/api/spi';
+const fireData = "/api/texas_fires";
+const fbyData = '/api/acres_year';
 let fby = [];
-fbyData.then(data => {
+d3.json(fbyData).then(data => {
     for (let z=0;z<(data.length);z++) {
         fby.push(data[z].TOTAL_COUNT / 200)
     }
@@ -16,7 +16,7 @@ let selYear = document.getElementById('selFireYear')
 let selCause = document.getElementById('selFireCause')
 let yearList = [];
 let causeList = [];
-fireData.then(get => {
+d3.json(fireData).then(get => {
     for (let i=0;i<get.length;i++) {
         let year = parseInt(get[i].FIRE_YEAR);
         let cause = get[i].STAT_CAUSE_DESCR;
@@ -79,7 +79,7 @@ function optionChanged(sel) {
     };
     legend.addTo(myMap);
 
-    fireData.then(data => {
+    d3.json(fireData).then(data => {
         // console.log(data);
         
         for (let i=0;i<data.length;i++) {
@@ -129,7 +129,7 @@ function optionChanged(sel) {
 optionChanged();
 
 // plot drought and moisture data from The Living Blended Drought Product (LBDP)
-paleoData.then(data => {
+d3.json(paleoData).then(data => {
     // console.log('paleo', data);
     let newData = [];
     let labels = [];
@@ -188,45 +188,39 @@ paleoData.then(data => {
         data: d4,
     },
     {
+          label: 'Abnormally Wet',
+          backgroundColor: 'rgb(170, 255, 85)',
+          data: w0,
+    },
+    {
+        label: 'Moderate Wet',
+        backgroundColor: 'rgb(1, 255, 255)',
+        data: w1,
+    },
+    {
+        label: 'Severe Wet',
+        backgroundColor: 'rgb(0, 170, 255)',
+        data: w2,
+    },
+    {
+        label: 'Extreme Wet',
+        backgroundColor: 'rgb(0, 0, 255)',
+        data: w3,
+    },
+    {
+        label: 'Exceptional Wet',
+        backgroundColor: 'rgb(0, 0, 170)',
+        data: w4,
+    },
+    {
         type: 'line',
         pointStyle: 'dash',
         label: 'Fires per Year',
         backgroundColor: 'rgba(75, 192, 192, 0.5)',
         fill: true,
         borderColor: 'rgb(75, 192, 192)',
-        tension:  0.4,
-        // hidden: true,
-        data: fby,
-    },
-    {
-        label: 'Abnormally Wet',
-        backgroundColor: 'rgb(170, 255, 85)',
-        data: w0,
-        hidden: true,
-    },
-    {
-        label: 'Moderate Wet',
-        backgroundColor: 'rgb(1, 255, 255)',
-        data: w1,
-        hidden: true,
-    },
-    {
-        label: 'Severe Wet',
-        backgroundColor: 'rgb(0, 170, 255)',
-        data: w2,
-        hidden: true,
-    },
-    {
-        label: 'Extreme Wet',
-        backgroundColor: 'rgb(0, 0, 255)',
-        data: w3,
-        hidden: true,
-    },
-    {
-        label: 'Exceptional Wet',
-        backgroundColor: 'rgb(0, 0, 170)',
-        data: w4,
-        hidden: true,
+        tension: 0.1,
+        data: fby
     }
     ]
     };
@@ -238,9 +232,6 @@ paleoData.then(data => {
             title: {
               display: true,
               text: 'Drought in Texas from 1992-2015'
-            },
-            filler: {
-                propagate: true
             },
             legend: {
                 position:'right'
@@ -256,8 +247,8 @@ paleoData.then(data => {
 });
 
 // plot drought and moisture data from The Standardized Precipitation Index (SPI)
-spiData.then(data => {
-    console.log("spi", data);
+d3.json(spiData).then(data => {
+    // console.log(data);
     let newData = [];
     let labels = [];
     let d0 = [];
