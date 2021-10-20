@@ -16,7 +16,7 @@ def get_spi():
 
 def get_paleo():
     sql = """
-    Seelect * from paleo
+    Select * from paleo
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -25,7 +25,7 @@ def get_paleo():
 
 def get_acres_cause():
     sql = """
-    Seelect * from acres_by_cause
+    Select * from acres_by_cause
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -34,7 +34,7 @@ def get_acres_cause():
 
 def get_acres_class():
     sql = """
-    Seelect * from acres_by_class
+    Select * from acres_by_class
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -43,7 +43,7 @@ def get_acres_class():
 
 def get_acres_year():
     sql = """
-    Seelect * from acres_by_year
+    Select * from acres_by_year
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -52,7 +52,7 @@ def get_acres_year():
 
 def get_texas_fires():
     sql = """
-    Seelect * from texas_fires
+    Select * from texas_fires
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -61,7 +61,7 @@ def get_texas_fires():
 
 def get_years():
     sql = """
-    Seelect * from year_ranges
+    Select * from year_ranges
     """
 
     results_df = pd.read_sql(sql, con=engine)

@@ -35,23 +35,23 @@ def test():
 @app.route("/api/spi")
 def spi():
     results = data_info.get_spi()
-    return jsonify(results)
+    return jsonify(data_info = results)
 
 @app.route("/api/paleo")
 def paleo():
     p_results = data_info.get_paleo()
-    return jsonify(p_results)
+    return jsonify(data_info = p_results)
 
 
 @app.route("/api/acres_year")
 def acres_year():
     AY_results = data_info.get_acres_year()
-    return jsonify(AY_results)
+    return jsonify(data_info = AY_results)
 
 @app.route("/api/texas_fires")
 def texas_fires():
     TF_results = data_info.get_texas_fires()
-    return jsonify(TF_results)
+    return jsonify(data_info = TF_results)
 
 
 if __name__ == "__main__":
