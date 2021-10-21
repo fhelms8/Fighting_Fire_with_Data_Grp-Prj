@@ -44,7 +44,19 @@ Our goal is to develop a web application to compile and display relevant histori
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+## Insights 
+
+Wildfires not only affect our environment but also affect our air quality, destory thousands of homes, and take away lives (human and animals). <br>
+Below is a picture of The Rockhouse Fire from 2011 around the Fort Davis area in west Texas. This fire not only started from an electrical short in an abandoned building, but ended up burning roughly 63 acres <b>per minute</b>! In total, this fire burned 20,800 acres in roughly 5.5 hours with an average speed of 6mph. 
+The average human can run 8-10 mph but cannot keep up the pace for 5.5 hours much like this fire did.
+
 ![original (1)](https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/rockhousefire.png)
+
+
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/campfire_children_railroads2.png>
+
+#### In 2011, Texas saw a massive influx of fires due to a serious drought. Roughly 3.5 million acres were burned throughout 2011 with the leading cause being “Equipment Use” with "Arson" trailing close behind as the second leading cause.  
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/arson_equip_powerlines2.png>
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_by_year.png>
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/droughts.png>
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_total.png>
@@ -55,8 +67,7 @@ Our goal is to develop a web application to compile and display relevant histori
 ### Our Recommendations
 Arson appears to be a consistent cause of wildfires in Texas. The current maximum penalty for arson resulting in severe injury or death is equivalent to possessing 4 to 200 grams of cocaine. (Both result in a fine of up to $10,000 and a max of 10 years in prison.) The department might consider partnering with law enforcement and lawmakers to increase the maximum sentence for arson. 
 
-In 2015, 'equipment use' became the leading cause of wildfires in Texas. Activities under this category include the use of lawnmowers, weed-eaters, chain saws, grinders, welders, and tractors. We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely.   
-
+Since 2008, 'equipment use' has maintained the leading cause of wildfires in Texas. Activities under this category include (but not limited to) the use of lawnmowers, weed-eaters, chain saws, grinders, welders, tractors, and construction machinery.  We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely along with making annual inspections of equipement mandetory. Currently, the only inspection regulation for equipement use is from the manufacterer and no inspections are required after. 
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
