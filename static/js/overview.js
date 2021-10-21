@@ -26,12 +26,18 @@ d3.json(fbyData).then(data => {
         y: fbytotal,
         type: 'bar',
         marker: {
+<<<<<<< HEAD
             color: '#D0B440',
             line: {
               color: '#4e0000',
               width: 1.5
             }
         },
+=======
+            color: 'red',
+            opacity: 0.5
+          }
+>>>>>>> 85be52cb12078f7fda8633e8bc1d5aadaad4210f
     }];
     let barLayout = {
         font:{color:"white"},
@@ -39,7 +45,7 @@ d3.json(fbyData).then(data => {
         // height: 300,
         // width: 600
         plot_bgcolor:"#1E1F20",
-        paper_bgcolor: "#1E1F20",
+        paper_bgcolor: "#1E1F20"
     };
     Plotly.newPlot('fires-by-year-bar', bar, barLayout);
 });
