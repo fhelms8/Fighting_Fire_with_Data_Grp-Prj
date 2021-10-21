@@ -95,4 +95,5 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 ### Sources
 
 <a href=https://www.drought.gov/states/texas>Drought.gov</a>
+<br>
 <a href=https://www.kaggle.com/rtatman/188-million-us-wildfires>Kaggle.com</a>
