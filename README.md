@@ -44,7 +44,12 @@ Our goal is to develop a web application to compile and display relevant histori
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-![original (1)](https://user-images.githubusercontent.com/82190357/137281572-0335e82c-8b80-4629-ba77-f52850a4988b.jpg)
+![original (1)](https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/rockhousefire.png)
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/campfire_children_railroads.png>
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/arson_equip_powerlines.png>
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_by_year.png>
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/droughts.png>
+<img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_total.png>
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -53,6 +58,8 @@ Our goal is to develop a web application to compile and display relevant histori
 Arson appears to be a consistent cause of wildfires in Texas. The current maximum penalty for arson resulting in severe injury or death is equivalent to possessing 4 to 200 grams of cocaine. (Both result in a fine of up to $10,000 and a max of 10 years in prison.) The department might consider partnering with law enforcement and lawmakers to increase the maximum sentence for arson. 
 
 In 2015, 'equipment use' became the leading cause of wildfires in Texas. Activities under this category include the use of lawnmowers, weed-eaters, chain saws, grinders, welders, and tractors. We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely.   
+
+
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -81,9 +88,10 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 <br>
 
 ### Data Sources
-- U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE
-- Drought.gov
-  
+- U.S. DEPARTMENT OF AGRICULTURE - RDS-2013-0009.4_SQLITE <br>
+<a href=https://www.drought.gov/states/texas>Drought.gov</a> <br>
+<a href=https://www.kaggle.com/rtatman/188-million-us-wildfires>Kaggle.com</a>
+<br>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
   
@@ -91,9 +99,3 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 [Dillon Carter](https://github.com/rb25s13) ---|--- [Felecia Helms](https://github.com/fhelms8) ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- [Taylor Lyons](https://github.com/taylorsyde)
   
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-### Sources
-
-<a href=https://www.drought.gov/states/texas>Drought.gov</a>
-<br>
-<a href=https://www.kaggle.com/rtatman/188-million-us-wildfires>Kaggle.com</a>
