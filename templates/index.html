@@ -18,6 +18,7 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
 </head>
 
 
@@ -34,6 +35,11 @@
                 <li class="nav-item">
                     <a class="nav-link active" href="#">Home
                         <span class="visually-hidden">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="overview.html">Overview
+                        <!-- <span class="visually-hidden">(current)</span> -->
                     </a>
                 </li>
                 <li class="nav-item dropdown">
@@ -112,8 +118,42 @@
                         <!-- <canvas id="myChart3"></canvas> -->
             </div>
         </div>
+        <br /><br />
+        <div class="row" style="padding: 1em;">
+            <div class="col-md-6">
+                <div id="fires-by-size"></div>
+            </div>
+            <div class="col-md-6">
+                <div id="fires-by-cause-bar"></div>
+              </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+              <div id="size-by-year"></div>
+            </div>
+        </div>
+        <br /><br />      
+          <div class="row">
+            <div class="col-md-12">
+              <div id="cause-by-year-plot"></div>
+            </div>
+        </div>
+        <br /><br />
+        <!-- <div class="row">
+            <div class="col-md-12">
+              <div id="causes" style="height: 550px;width: 100%;"></div>
+            </div>
+        </div>
+        <br /><br />
+        <div class="row">
+            <div class="col-md-12">
+              <div id="fires-by-year-bar"></div>
+            </div>
+        </div> -->
+      
+
     </div>
-    <script type="text/javascript" src="/static//js/logic.js"></script>
+    <script type="text/javascript" src="/static/js/logic.js"></script>
 </body>
 
 </html>

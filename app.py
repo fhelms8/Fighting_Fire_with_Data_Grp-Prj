@@ -32,6 +32,10 @@ from flask_sqlalchemy import SQLAlchemy
 def test():
     return render_template("index.html")
 
+@app.route("/overview.html")
+def overview():
+    return render_template("overview.html")
+
 @app.route("/api/spi")
 def spi():
     results = data_info.get_spi()
@@ -67,10 +71,22 @@ def fires_by_year():
     fby_results = data_info.get_fires_by_year()
     return jsonify(fby_results)
 
+@app.route("/api/causes_by_year")
+def causes_by_year():
+    cby_results = data_info.get_causes_by_year()
+    return jsonify(cby_results)
+
 @app.route("/api/years")
 def years():
     year_results = data_info.get_years()
     return jsonify(year_results)
+
+# new route that keeps you from reloading the whole table 
+# every time
+@app.route("/api/texas_fires/<option>")
+def selected_texas_fires(option):
+    TF_results = data_info.get_selected_texas_fires(option)
+    return jsonify(TF_results)
 
 if __name__ == "__main__":
     app.run()
