@@ -72,11 +72,11 @@ There is a mass count of miscellaneous and unidentified wildfire causes (we can 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Our Recommendations
-Arson appears to be a consistent cause of wildfires in Texas. The current maximum penalty for arson resulting in severe injury or death is equivalent to possessing 4 to 200 grams of cocaine. (Both result in a fine of up to $10,000 and a max of 10 years in prison.) The department might consider partnering with law enforcement and lawmakers to increase the maximum sentence for arson. 
+- Arson appears to be a consistent cause of wildfires in Texas. The current maximum penalty for arson resulting in severe injury or death is equivalent to possessing 4 to 200 grams of cocaine. (Both result in a fine of up to $10,000 and a max of 10 years in prison.) The department might consider partnering with law enforcement and lawmakers to increase the maximum sentence for arson. 
 
-Since 2008, 'equipment use' has maintained the leading cause of wildfires in Texas. Activities under this category include (but not limited to) the use of lawnmowers, weed-eaters, chain saws, grinders, welders, tractors, and construction machinery.  We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely along with making annual inspections of equipement mandetory. Currently, the only inspection regulation for equipement use is from the manufacterer and no inspections are required after. 
+- Since 2008, 'equipment use' has maintained the leading cause of wildfires in Texas. Activities under this category include (but not limited to) the use of lawnmowers, weed-eaters, chain saws, grinders, welders, tractors, and construction machinery.  We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely along with making annual inspections of equipement mandetory. Currently, the only inspection regulation for equipement use is from the manufacterer and no inspections are required after. 
 
-
+- One last recommendation is to make a wildfire protection program that allows citizens with pilots licenses to get a tax break on planes that have a higher weight capacity and higher heat resistance. In order for a citizen to get the tax break, they would need to be trained in a wildfire program and to be notified if a wildfire outbreak is within their area. The reason being is the bigger planes that carry the retardants, take more time to load, travel back and forth, and there are limited amount of planes/trained pilots, which make the process take much longer. If we can get citizens to assist and help contain the fires between "big drops" then, there might be a chance to save acres, houses, and most importantly, lives.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Our Process
