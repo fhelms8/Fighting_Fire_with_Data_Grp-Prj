@@ -8,7 +8,7 @@
   
 </div>
 
-![Screenshot_1](https://user-images.githubusercontent.com/82190357/137617782-5d8d6180-0c64-4ce5-9351-4eb1abfd946e.png)
+![Screenshot_1](https://github.com/fhelms8/Project-3/blob/main/Unused%20files/pics/dashboard.png?raw=true)
 
 <!-- TABLE OF CONTENTS -->
 <details>
