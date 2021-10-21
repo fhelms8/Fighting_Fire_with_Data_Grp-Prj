@@ -20,6 +20,7 @@
         <li><a href="#Considerations">Considerations</a></li>
       </ul>
     </li>
+  <li><a href="#Recomendations">Process</a></li>
     <li><a href="#Process">Process</a></li>
       <ul>
          <li><a href="#Tools">Tools</a></li>
@@ -77,15 +78,6 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 <br>
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-![Screenshot_1](https://user-images.githubusercontent.com/82190357/137281183-61a99571-7f9b-44b2-a7e6-bc53a48d4028.png)
-
-
-<b>
-<b>
-
-
-![QuickDBD-export (2)](https://user-images.githubusercontent.com/82190357/137862833-0c838645-077a-4a9a-96a5-e5932e9285ed.jpg)
-
 <br>
 
 ### Data Sources
@@ -94,13 +86,6 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
   
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-<br>
-
-
-![original (2)](https://user-images.githubusercontent.com/82190357/137583931-03c513ea-a48b-441b-be67-ff8462385408.jpg)
-
   
 ### The Team
 [Dillon Carter](https://github.com/rb25s13) ---|--- [Felecia Helms](https://github.com/fhelms8) ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- [Taylor Lyons](https://github.com/taylorsyde)
