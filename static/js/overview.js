@@ -24,14 +24,19 @@ d3.json(fbyData).then(data => {
     let bar = [{
         x: years,
         y: fbytotal,
-        type: 'bar'}];
+        type: 'bar',
+        marker: {
+            color: 'red',
+            opacity: 0.5
+          }
+    }];
     let barLayout = {
         font:{color:"white"},
-        title: "# of Texas Wildfires (1992-2015)",
+        title: "Number of Texas Wildfires (1992-2015)",
         // height: 300,
         // width: 600
         plot_bgcolor:"#1E1F20",
-        paper_bgcolor: "#1E1F20",
+        paper_bgcolor: "#1E1F20"
     };
     Plotly.newPlot('fires-by-year-bar', bar, barLayout);
 });
