@@ -4,7 +4,7 @@
 <div align="center">
   
 # Fighting Fire with Data
-### Texas Wildfire Data Dashboard
+### [Texas Wildfire Data Dashboard](https://fightingfirewithdata.herokuapp.com/)
   
 </div>
 
