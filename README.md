@@ -48,18 +48,24 @@ Our goal is to develop a web application to compile and display relevant histori
 
 Wildfires not only affect our environment but also affect our air quality, destorys thousands of homes, and take away lives (human and animals). <br>
 Wildfires most often happen quickly and without warning. 
-Below is a picture of The Rockhouse Fire from 2011 around the Fort Davis area in west Texas. This fire started from an electrical short in an abandoned building and ended up burning roughly 63 acres <b>per minute</b>! In total, this fire burned 20,800 acres in roughly 5.5 hours with an average speed of 6mph. 
+Below is a picture of The Rockhouse Fire from 2011 around the Fort Davis area in west Texas. This fire started from an electrical short in an abandoned building and ended up burning roughly 63 acres **per minute**! In total, this fire burned 20,800 acres in roughly 5.5 hours with an average speed of 6mph. 
 The average human can run 8-10 mph but cannot keep up the pace for 5.5 hours much like this fire did.
 
 ![original (1)](https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/rockhousefire.png)
 
-
+We all know that children can be rotten and destructive (semi-kidding), but what we didn't know is that they almost the same amount of wildfires as railroads do!
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/campfire_children_railroads2.png>
 
-#### In 2011, Texas saw a massive influx of fires due to a serious drought. Roughly 3.5 million acres were burned throughout 2011 with the leading cause being “Equipment Use” with "Arson" trailing close behind as the second leading cause.  
+In 2011, Texas saw a massive influx of fires due to a serious drought. Roughly 3.5 million acres were burned throughout 2011 with the leading cause being “Equipment Use” with "Arson" trailing close behind as the second leading cause.  
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/arson_equip_powerlines2.png>
+As you can see, in 2011, Texas had burned roughly 3.5 MILLION acres which is almost the same size as state of Connecticut (3.54 acres)!! 
+- **1992-1999 (7 year span)** = 425,487 acres / 7yrs = 105,336 average acres burned per year
+- **2000-2007 (7 year span)** = 2,683,265 acres / 7yrs = 383,324 average acres burned per year
+- **2008-2015 (7 year span)** = 6,365,597 acres / 7yrs = 909,371 average acres burned per year
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_by_year.png>
+From the graph, you can definitely see a coorelation between the amount of precipitation (or lack there of) and the amount of wildfires. 
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/droughts.png>
+There is a mass count of miscellaneous and unidentified wildfire causes (we can still blame the children), but lightening seems to be the leading cause of the amount of acres being burned in Texas with the runner up being equipment use. 
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_total.png>
 
 
