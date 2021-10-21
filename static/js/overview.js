@@ -24,10 +24,18 @@ d3.json(fbyData).then(data => {
     let bar = [{
         x: years,
         y: fbytotal,
-        type: 'bar'}];
+        type: 'bar',
+        marker: {
+            color: '#D0B440',
+            line: {
+              color: '#4e0000',
+              width: 1.5
+            }
+        },
+    }];
     let barLayout = {
         font:{color:"white"},
-        title: "# of Texas Wildfires (1992-2015)",
+        title: "Number of Texas Wildfires (1992-2015)",
         // height: 300,
         // width: 600
         plot_bgcolor:"#1E1F20",
@@ -46,7 +54,15 @@ d3.json(acresYearData).then(data => {
     let year_bar = [{
         x: years,
         y: yearsums,
-        type: 'bar'}];
+        type: 'bar',
+        marker: {
+            color: '#E67F33',
+            line: {
+              color: '#4e0000',
+              width: 1.5
+            }
+        },
+    }];
     let year_barLayout = {
         font:{color:"white"},
         title: "Total of Acres by Year",
@@ -69,7 +85,15 @@ d3.json(acresCauseData).then(data => {
     let cause_bar = [{
         x: causes,
         y: causesums,
-        type: 'bar'}];
+        type: 'bar',
+        marker: {
+            color: '#CE2220',
+            line: {
+              color: '#4e0000',
+              width: 1.5
+            }
+        },
+    }];
     let cause_barLayout = {
         font:{color:"white"},
         title: "Total of Acres by Cause",
@@ -92,7 +116,15 @@ d3.json(acresClassData).then(data => {
     let class_bar = [{
         x: classes,
         y: classsums,
-        type: 'bar'}];
+        type: 'bar',
+        marker: {
+            color: '#CE2220',
+            line: {
+              color: '#4e0000',
+              width: 1.5
+            }
+        },
+    }];
     let class_barLayout = {
         font:{color:"white"},
         title: "Total of Acres by Class",

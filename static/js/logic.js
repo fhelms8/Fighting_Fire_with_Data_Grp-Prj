@@ -8,35 +8,9 @@ const yearData = 'api/years';
 
 function init(){
     // pull data from the samples.json file
-    d3.json(fireData).then(data => {
-        // create dropdown options and names from samples.json
-        // var yearDropdown = d3.select("#selFireYear");
-        // years.forEach(item => {
-        //     // loop and populate the names into the dropdown box
-        //     yearDropdown.append("option") // add option to dropdown
-        //     .property("value", item) // variable name
-        //     .text(item); // populate text 
-        // })
-
-        // var causeDropdown = d3.select("#selFireCause");
-        // causeList.forEach(item => {
-        //     // loop and populate the names into the dropdown box
-        //     causeDropdown.append("option") // add option to dropdown
-        //     .property("value", item) // variable name
-        //     .text(item); // populate text 
-        // })
-
-        // console.log(data[20]);
-
-        // //create inital visulizations
-        var initYear = yearDropdown.property("value");
-        firesVsYear();
-        yearVsSize(initYear);
-        yearVsCause(initYear);
-        causePie(initYear);
-        var initCuase = causeDropdown.property("value");
-        causeVsYear(initCuase);
-        
+    initUrl = `${fireData}/1992`;
+    d3.json(initUrl).then(data => {
+        optionChanged(1992);
     })
 };
 
@@ -53,230 +27,25 @@ d3.json(fbyData).then(data => {
         fby.push(data.count / 200)
         fbytotal.push(data.count)
     });
-    d3.select('#fires-by-year-bar').html(''); // clears out old graph
-    let bar = [{
-        x: years,
-        y: fbytotal,
-        type: 'bar'}];
-    let barLayout = {
-        title: "# of Texas Wildfires (1992-2015)",
-        // height: 300,
-        // width: 600
-    };
-    Plotly.newPlot('fires-by-year-bar', bar, barLayout);
 });
-console.log(fbytotal);
-
-// get the list of years and causes for the dropdowns
-// let selYear = document.getElementById('selFireYear')
-// let selCause = document.getElementById('selFireCause')
-// let yearList = [];
-// let causeList = [];
-
-let countByYear = []
-let arsonByYear = []
-let campfireByYear = []
-let smokingByYear = []
-let lightningByYear = []
-let equipByYear = []
-let childByYear = []
-let railByYear = []
-let firewByYear = []
-let powlineByYear = [] 
-
-
-
-d3.json(cbyData).then(get => {
-    for (let i=0;i<get.length;i++) {
-
-        // let currYear = get[i].fire_year;
-        // currCount = currYear.length;
-        // countByYear.push(currCount);
-        let cause = get[i].stat_cause_descr;
-        let count = get[i].count;
-
-        if (cause == 'Arson'){
-            arsonByYear.push(count);
-        }
-        else if (cause == 'Campfire'){
-            campfireByYear.push(count);
-        }
-        else if (cause == 'Smoking'){
-            smokingByYear.push(count);
-        }
-        else if (cause == 'Lightning'){
-            smokingByYear.push(count);
-        }
-        else if (cause == 'Equipment Use'){
-            equipByYear.push(count);
-        }
-        else if (cause == 'Children'){
-            childByYear.push(count);
-        }
-        else if (cause == 'Railroad'){
-            railByYear.push(count);
-        }
-        else if (cause == 'Fireworks'){
-            firewByYear.push(count);
-        }
-        else if (cause == 'Powerline'){
-            powlineByYear.push(count);
-        }
-    }
-
-    // d3.select('#causes').html(''); // clears out old graph
-
-    total_trace = {
-    type: 'scatter',
-    x: years,
-    y: fbytotal,
-    mode: 'lines',
-    name: 'Total',
-    line: {
-      color: 'rgb(219, 64, 82)',
-      width: 3
-    }
-    };
-    
-    arson_trace = {
-    type: 'scatter',
-    x: years,
-    y: arsonByYear,
-    mode: 'lines',
-    name: 'Arson',
-    line: {
-      color: 'rgb(55, 128, 191)',
-      width: 2
-    }
-    };
-    
-    camp_trace = {
-    type: 'scatter',
-    x: years,
-    y: campfireByYear,
-    mode: 'lines',
-    name: 'Campfire',
-    line: {
-      color: 'green',
-      width: 2
-    }
-    };
-    
-    smoke_trace = {
-    type: 'scatter',
-    x: years,
-    y: smokingByYear,
-    mode: 'lines',
-    name: 'Smokeing',
-    line: {
-      color: 'orange',
-      width: 2
-    }
-    };
-    
-    lightning_trace = {
-    type: 'scatter',
-    x: years,
-    y: lightningByYear,
-    mode: 'lines',
-    name: 'Lightning',
-    line: {
-      color: 'purple',
-      width: 2
-    }
-    };
-    
-    equip_trace = {
-    type: 'scatter',
-    x: years,
-    y: equipByYear,
-    mode: 'lines',
-    name: 'Equipment Use',
-    line: {
-      color: 'green',
-      width: 2
-    }
-    };
-    
-    child_trace = {
-    type: 'scatter',
-    x: years,
-    y: childByYear,
-    mode: 'lines',
-    name: 'Children',
-    line: {
-      color: 'pink',
-      width: 2
-    }
-    };
-    
-    rail_trace = {
-    type: 'scatter',
-    x: years,
-    y: railByYear,
-    mode: 'lines',
-    name: 'Railroads',
-    line: {
-      color: 'yellow',
-      width: 2
-    }
-    };
-    
-    fireworks_trace = {
-    type: 'scatter',
-    x: years,
-    y: firewByYear,
-    mode: 'lines',
-    name: 'Fireworks',
-    line: {
-      color: 'black',
-      width: 2
-    }
-    };
-    
-    powerlines_trace = {
-    type: 'scatter',
-    x: years,
-    y: powlineByYear,
-    mode: 'lines',
-    name: 'Powerlines',
-    line: {
-      color: 'yellow',
-      width: 2
-    }
-    };
-    
-    let layout = {
-    // width: 1000,
-    // height: 500,
-    // template='plotly_dark'
-    plot_bgcolor:"black",
-    xaxis: {gridcolor: "grey"},
-    yaxis: {gridcolor: "grey"}
-    };
-    
-    let data = [total_trace, arson_trace, camp_trace, 
-              child_trace, rail_trace, equip_trace, 
-              lightning_trace, powerlines_trace, 
-              fireworks_trace];
-    
-    Plotly.newPlot('causes', data, layout);
-});
-
-// console.log('aby',arsonByYear);
-
-
-
+// console.log(fbytotal);
 
 
 let selectM = d3.select('.mapContainer');
+let selectfbs = d3.select('.fbsCont');
+let selectfbc = d3.select('.fbcCont');
+let selectfbt = d3.select('.fbtCont');
 
 // function to update map based on dropdown selection
 function optionChanged(sel) {
-    let option = sel;
+    // let option = sel;
     // console.log(d3.select('#selFireYear').text());
 
     $('#map').remove();
+    $('#fires-by-size').remove();
+    $('#fires-by-cause-bar').remove();
+    $('#cause-by-year-plot').remove();
+
     selectM.append('div').attr('id', 'map');
 
     let myMap = L.map('map', {
@@ -314,7 +83,7 @@ function optionChanged(sel) {
             let year = data[i].FIRE_YEAR;
             let fireSize = data[i].FIRE_SIZE;
             let fireSizeClass = data[i].FIRE_SIZE_CLASS;
-            let cause = data[i].STAT_CAUSE_dESCR;
+            let cause = data[i].STAT_CAUSE_DESCR;
             let color = '';
             if (fireSizeClass == 'A') {
               color = '#a3f600';
@@ -352,124 +121,193 @@ function optionChanged(sel) {
 
         }
 
-        fireSizeCount = []
-        sizeClass = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
-        for (let i = 0; i < sizeClass.length; i++) {
-            currCount = data.filter(item => item.FIRE_SIZE_CLASS == sizeClass[i]).length;
-            fireSizeCount.push(currCount);
-        }
-        console.log('counts:', fireSizeCount);
-        console.log('Size Classes:', sizeClass)
-        d3.select('#fires-by-size').html(''); // clears out old graph
-        let bar = [{
-            x: sizeClass,
-            y: fireSizeCount,
-            type: 'bar'}];
-        let barLayout = {
-            font:{color:"white"},
-            title: `Fires by Size in ${sel}`,
-            // height: 300,
-            // width: 600
-            plot_bgcolor:"#1E1F20",
-            paper_bgcolor: "#1E1F20",
-        };
-        Plotly.newPlot('fires-by-size', bar, barLayout);
-// __________________________________________________________________________
-        fireCauseCount = []
-        causeList = ['Arson', 'Campfire', 'Smoking', 'Lightning',
-            'Equipment Use', 'Children', 'Railroad',
-            'Fireworks', 'Powerline']
-        // loop thru, filter and return
-        // the number of fires in each year
-        for (let i = 0; i < causeList.length; i++) {
-            currCount = data.filter(item => item.STAT_CAUSE_DESCR == causeList[i]).length;
-            fireCauseCount.push(currCount);
-        }
-        console.log('Cause Count:', fireSizeCount);
-
-        d3.select('#fires-by-cause-bar').html(''); // clears out old graph
-        let bar2 = [{
-            x: causeList,
-            y: fireCauseCount,
-            type: 'bar'}];
-        let barLayout2 = {
-            font:{color:"white"},
-            title: `Fires by Cause in ${sel}`,
-            // height: 300,
-            // width: 600
-            plot_bgcolor:"#1E1F20",
-            paper_bgcolor: "#1E1F20",
-        };
-        Plotly.newPlot('fires-by-cause-bar', bar2, barLayout2);
+;
   
 // __________________________________________________________________________
+        if (!isNaN(sel)) {
+            $('#cause-by-year-plot').remove();
+            selectfbs.append('div').attr('id', 'fires-by-size');
+            selectfbc.append('div').attr('id', 'fires-by-cause-bar');
 
+            fireSizeCount = []
+            sizeClass = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+            for (let i = 0; i < sizeClass.length; i++) {
+                currCount = data.filter(item => item.FIRE_SIZE_CLASS == sizeClass[i]).length;
+                fireSizeCount.push(currCount);
+            }
+            console.log('counts:', fireSizeCount);
+            console.log('Size Classes:', sizeClass)
+            // d3.select('#fires-by-size').html(''); // clears out old graph
+            let bar = [{
+                x: sizeClass,
+                y: fireSizeCount,
+                type: 'bar',
+                marker: {
+                    color: '#CE2220',
+                    line: {
+                      color: '#4e0000',
+                      width: 1.5
+                    }
+                },
+            }];
+            let barLayout = {
+                font:{color:"white"},
+                title: `Fires by Size in ${sel}`,
+                // height: 300,
+                // width: 600
+                plot_bgcolor:"#1E1F20",
+                paper_bgcolor: "#1E1F20",
+            };
+            Plotly.newPlot('fires-by-size', bar, barLayout);
+    // __________________________________________________________________________
+            fireCauseCount = []
+            causeList = ['Arson', 'Campfire', 'Smoking', 'Lightning',
+                'Equipment Use', 'Children', 'Railroad',
+                'Fireworks', 'Powerline']
+            // loop thru, filter and return
+            // the number of fires in each year
+            for (let i = 0; i < causeList.length; i++) {
+                currCount = data.filter(item => item.STAT_CAUSE_DESCR == causeList[i]).length;
+                fireCauseCount.push(currCount);
+            }
+            console.log('Cause Count:', fireSizeCount);
+    
+            // d3.select('#fires-by-cause-bar').html(''); // clears out old graph
+            let bar2 = [{
+                x: causeList,
+                y: fireCauseCount,
+                type: 'bar',
+                marker: {
+                    color: '#CE2220',
+                    line: {
+                      color: '#4e0000',
+                      width: 1.5
+                    }
+                },
+            }];
+            let barLayout2 = {
+                font:{color:"white"},
+                title: `Fires by Cause in ${sel}`,
+                // height: 300,
+                // width: 600
+                plot_bgcolor:"#1E1F20",
+                paper_bgcolor: "#1E1F20",
+            };
+            Plotly.newPlot('fires-by-cause-bar', bar2, barLayout2);
+        }  
+        if (isNaN(sel)) {
+            console.log(typeof(sel));
+            $('#fires-by-size').remove();
+            $('#fires-by-cause-bar').remove();
+            $('#cause-by-year-plot').remove();
+            // __________________________________________________________________________
+            selectfbs.append('div').attr('id', 'fires-by-size');
+            fireSizeCount = []
+            sizeClass = ['A', 'B', 'C', 'D', 'E', 'F', 'G']
+            for (let i = 0; i < sizeClass.length; i++) {
+                currCount = data.filter(item => item.FIRE_SIZE_CLASS == sizeClass[i]).length;
+                fireSizeCount.push(currCount);
+            }
+            console.log('counts:', fireSizeCount);
+            console.log('Size Classes:', sizeClass)
+            // d3.select('#fires-by-size').html(''); // clears out old graph
+            let bar = [{
+                x: sizeClass,
+                y: fireSizeCount,
+                type: 'bar',
+                marker: {
+                    color: '#CE2220',
+                    line: {
+                      color: '#4e0000',
+                      width: 1.5
+                    }
+                },
+            }];
+            let barLayout = {
+                font:{color:"white"},
+                title: `Fires by Size - ${sel}`,
+                // height: 300,
+                // width: 600
+                plot_bgcolor:"#1E1F20",
+                paper_bgcolor: "#1E1F20",
+            };
+            Plotly.newPlot('fires-by-size', bar, barLayout);
+            // __________________________________________________________________________
+            selectfbc.append('div').attr('id', 'cause-by-year-plot');
+            causeCountByYear = []
+            for (let i = 0; i < causeList.length; i++) {
+                currCount = data.filter(item => item.FIRE_YEAR == years[i]).length;
+                causeCountByYear.push(currCount);
+            }
+            // d3.select('#cause-by-year-plot').html(''); // clears out old graph
+            let bar3 = [{
+                x: years,
+                y: causeCountByYear,
+                type: 'bar',
+                marker: {
+                    color: '#CE2220',
+                    line: {
+                      color: '#4e0000',
+                      width: 1.5
+                    }
+                },
+            }];
+            let barLayout3 = {
+                font:{color:"white"},
+                title: `# of Fires Caused by ${sel}`,
+                // height: 300,
+                // width: 600
+                plot_bgcolor:"#1E1F20",
+                paper_bgcolor: "#1E1F20",
+            };
+            Plotly.newPlot('cause-by-year-plot', bar3, barLayout3);
+        }
         // loop thru each year, filter and return
         // the number of fires in each year
-        causeCountByYear = []
-        for (let i = 0; i < causeList.length; i++) {
-            currCount = data.filter(item => item.FIRE_YEAR == years[i]).length;
-            causeCountByYear.push(currCount);
-        }
-        d3.select('#cause-by-year-plot').html(''); // clears out old graph
-        let bar3 = [{
-            x: years,
-            y: causeCountByYear,
-            type: 'bar'}];
-        let barLayout3 = {
-            font:{color:"white"},
-        title: `Fires Caused by ${sel}`,
-            // height: 300,
-            // width: 600
-        plot_bgcolor:"#1E1F20",
-        paper_bgcolor: "#1E1F20",
-        };
-        Plotly.newPlot('cause-by-year-plot', bar3, barLayout3);
+        
     });
 
 }
 optionChanged();
 
 
-d3.json(fireData).then(data => {
-    // __________________________________________________________________________
-    sizeAvgByYear = []
-    for (let i = 0; i < years.length; i++) {
-        // currYear = data.filter(item => item.FIRE_YEAR == years[i])
-        // currCount = currYear.length;
-        sizeTotal = 0
-        for (let i = 0; i < data.length; i++) {
-            sizeTotal = sizeTotal + data[i].FIRE_SIZE 
-        }
-        currYearAvg = sizeTotal/currCount;
-        sizeAvgByYear.push(currYearAvg);
-        console.log(`Size Avg in ${sel}:`, currYearAvg)
-    }
+// d3.json(fireData).then(data => {
+//     // __________________________________________________________________________
+//     sizeAvgByYear = []
+//     for (let i = 0; i < years.length; i++) {
+//         // currYear = data.filter(item => item.FIRE_YEAR == years[i])
+//         // currCount = currYear.length;
+//         sizeTotal = 0
+//         for (let i = 0; i < data.length; i++) {
+//             sizeTotal = sizeTotal + data[i].FIRE_SIZE 
+//         }
+//         currYearAvg = sizeTotal/currCount;
+//         sizeAvgByYear.push(currYearAvg);
+//         console.log(`Size Avg in ${sel}:`, currYearAvg)
+//     }
 
-    d3.select('#size-by-year').html(''); // clears out old graph
+//     d3.select('#size-by-year').html(''); // clears out old graph
 
-    let trace = [{
-        type: 'scatter',
-        x: years,
-        y: sizeAvgByYear,
-        line: {
-          color: 'red',
-          width: 3
-        }
-      }];
+//     let trace = [{
+//         type: 'scatter',
+//         x: years,
+//         y: sizeAvgByYear,
+//         line: {
+//           color: 'red',
+//           width: 3
+//         }
+//       }];
 
-    let Layout = {
-        font:{color:"white"},
-        title: "Average Size by Year",
-        // height: 300,
-        // width: 600
-        plot_bgcolor:"#1E1F20",
-        paper_bgcolor: "#1E1F20",
-    };
-    Plotly.newPlot('size-by-year', trace, Layout);   
-})
-
-
+//     let Layout = {
+//         font:{color:"white"},
+//         title: "Average Size by Year",
+//         // height: 300,
+//         // width: 600
+//         plot_bgcolor:"#1E1F20",
+//         paper_bgcolor: "#1E1F20",
+//     };
+//     Plotly.newPlot('size-by-year', trace, Layout);   
+// })
 
 // plot drought and moisture data from The Living Blended Drought Product (LBDP)
 d3.json(paleoData).then(data => {
@@ -535,31 +373,26 @@ d3.json(paleoData).then(data => {
         label: 'Abnormally Wet',
         backgroundColor: 'rgb(170, 255, 85)',
         data: w0,
-        hidden: true,
     },
     {
         label: 'Moderate Wet',
         backgroundColor: 'rgb(1, 255, 255)',
         data: w1,
-        hidden: true,
     },
     {
         label: 'Severe Wet',
         backgroundColor: 'rgb(0, 170, 255)',
         data: w2,
-        hidden: true,
     },
     {
         label: 'Extreme Wet',
         backgroundColor: 'rgb(0, 0, 255)',
         data: w3,
-        hidden: true,
     },
     {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
-        hidden: true,
     },
     {
         type: 'line',
@@ -580,10 +413,10 @@ d3.json(paleoData).then(data => {
           plugins: {
             title: {
               display: true,
-              text: 'Drought in Texas from 1992-2015'
+              text: 'Drought & Moisture in Texas from 1992-2015'
             },
             legend: {
-                position:'right'
+                display: false,
             },
           },
           responsive: true,
@@ -619,11 +452,11 @@ d3.json(spiData).then(data => {
         d2.push(curData['d2']);
         d3.push(curData['d3']);
         d4.push(curData['d4']);
-        w0.push(-curData['w0']);
-        w1.push(-curData['w1']);
-        w2.push(-curData['w2']);
-        w3.push(-curData['w3']);
-        w4.push(-curData['w4']);
+        w0.push(curData['w0']);
+        w1.push(curData['w1']);
+        w2.push(curData['w2']);
+        w3.push(curData['w3']);
+        w4.push(curData['w4']);
     }
     // console.log(newData);
 
@@ -655,6 +488,56 @@ d3.json(spiData).then(data => {
         backgroundColor: 'rgb(102, 0, 0)',
         data: d4,
     },
+    // {
+    //       label: 'Abnormally Wet',
+    //       backgroundColor: 'rgb(170, 255, 85)',
+    //       data: w0,
+    // },
+    // {
+    //     label: 'Moderate Wet',
+    //     backgroundColor: 'rgb(1, 255, 255)',
+    //     data: w1,
+    // },
+    // {
+    //     label: 'Severe Wet',
+    //     backgroundColor: 'rgb(0, 170, 255)',
+    //     data: w2,
+    // },
+    // {
+    //     label: 'Extreme Wet',
+    //     backgroundColor: 'rgb(0, 0, 255)',
+    //     data: w3,
+    // },
+    // {
+    //     label: 'Exceptional Wet',
+    //     backgroundColor: 'rgb(0, 0, 170)',
+    //     data: w4,
+    // },
+    ]
+    };
+    const config = {
+        type: 'bar',
+        data: mapData,
+        options: {
+          plugins: {
+            title: {
+              display: true,
+              text: 'Drought in Texas from 1992-2015'
+            },
+            legend: {
+                display: false,
+            },
+          },
+          responsive: true,
+        }
+    };
+    let myChart = new Chart(
+          document.getElementById('myChart'),
+          config
+    );
+    const mapData3 = {
+        labels: labels,
+        datasets: [
     {
           label: 'Abnormally Wet',
           backgroundColor: 'rgb(170, 255, 85)',
@@ -679,36 +562,26 @@ d3.json(spiData).then(data => {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
-    },
-    // {
-    //     type: 'line',
-    //     label: 'Fires per Year',
-    //     backgroundColor: 'rgba(75, 192, 192, 0.5)',
-    //     fill: true,
-    //     borderColor: 'rgb(75, 192, 192)',
-    //     tension: 0.1,
-    //     data: fby
-    // }
-    ]
-    };
-    const config = {
+    }
+    ]};
+    const config3 = {
         type: 'bar',
-        data: mapData,
+        data: mapData3,
         options: {
           plugins: {
             title: {
               display: true,
-              text: 'Drought in Texas from 1992-2015'
+              text: 'Moisture in Texas from 1992-2015'
             },
             legend: {
-                position:'right'
+                display: false,
             },
           },
           responsive: true,
         }
     };
-    let myChart = new Chart(
-          document.getElementById('myChart'),
-          config
+    let myChart3 = new Chart(
+          document.getElementById('myChart3'),
+          config3
     );
 });
