@@ -93,15 +93,6 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<br>
-
-### Tools
-- MongoDB Atlas/PostgreSQL/pgAdmin
-- Python/Pandas/Flask
-- Jupyter Notebook
-- Javascript/Plotly/D3/Chart.js/[Bootstrap](https://getbootstrap.com)
-  
-  <p align="right">(<a href="#top">back to top</a>)</p>
 
 <br>
 
@@ -112,7 +103,4 @@ The final web application uses Heroku and Flask to retrieve data and Plotly, Lea
 ### The Team
 [Dillon Carter](https://github.com/rb25s13) ---|--- [Felecia Helms](https://github.com/fhelms8) ---|--- [Darrell Horich](https://github.com/D11eleven) ---|--- [Taylor Lyons](https://github.com/taylorsyde)
   
-  <p align="right">(<a href="#top">back to top</a>)</p>
-
-
-
+<p align="right">(<a href="#top">back to top</a>)</p>
