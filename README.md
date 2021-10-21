@@ -63,9 +63,9 @@ As you can see, in 2011, Texas had burned roughly 3.5 MILLION acres which is alm
 - **2000-2007 (7 year span)** = 2,683,265 acres / 7yrs = 383,324 average acres burned per year
 - **2008-2015 (7 year span)** = 6,365,597 acres / 7yrs = 909,371 average acres burned per year
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_by_year.png>
-From the graph, you can definitely see a coorelation between the amount of precipitation (or lack there of) and the amount of wildfires. 
+From the graph, you can definitely see a correlation between the amount of precipitation (or lack there of) and the amount of wildfires. 
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/droughts.png>
-There is a mass count of miscellaneous and unidentified wildfire causes (we can still blame the children), but lightening seems to be the leading cause of the amount of acres being burned in Texas with the runner up being equipment use. 
+There is a massive count of miscellaneous and unidentified wildfire causes (we can still blame the children), but lightening seems to be the leading cause of the amount of acres being burned in Texas with the runner up being equipment use. 
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/acres_total.png>
 
 
