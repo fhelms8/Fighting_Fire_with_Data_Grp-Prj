@@ -22,7 +22,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a></li>
+      <a href="#Overview">About The Project</a></li>
       <ul>
         <li><a href="#Considerations">Considerations</a></li>
       </ul>
@@ -46,17 +46,17 @@
 
   
 
-## About the Project
+## Overview
 
-The Texas Outdoors and Nature Department has recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help make an informed decision about where to best invest their funds.
+The Texas Outdoors and Nature Department have recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help decide where to invest their funds best.
 
-Our goal is to develop a web application that will provide a data overview and a set of results based on historical data that can be used as a resource to set priorities in prevention planning of wildfires in Texas. 
+Our goal is to develop a web application to compile and display relevant historical data for chief staff.  In addition, we will provide insights and recommendations based on the initial analysis.  
 
 ## Considerations
-- Education and Marketing: Which audience is best suited to receive wildfire prevention education?
-- Law Enforcement: Would an increase in penalties create positive change?
-- Area/Regions of Concern: Which locations would benefit the most from the deployment of preventative measures?
-- Prediction: Are there significant changes in the intensity, speed, or size of wildfires?
+- **Education and Marketing:** Which audience is best suited to receive wildfire prevention education?
+- **Law Enforcement:** Would an increase in penalties create positive change?
+- **Area/Regions of Concern:** Which locations would benefit the most from the deployment of preventative measures?
+- **Prediction:** Are there significant changes in the intensity, speed, or size of wildfires?
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
