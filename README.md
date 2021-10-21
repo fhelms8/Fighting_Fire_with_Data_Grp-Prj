@@ -46,8 +46,9 @@ Our goal is to develop a web application to compile and display relevant histori
 
 ## Insights 
 
-Wildfires not only affect our environment but also affect our air quality, destory thousands of homes, and take away lives (human and animals). <br>
-Below is a picture of The Rockhouse Fire from 2011 around the Fort Davis area in west Texas. This fire not only started from an electrical short in an abandoned building, but ended up burning roughly 63 acres <b>per minute</b>! In total, this fire burned 20,800 acres in roughly 5.5 hours with an average speed of 6mph. 
+Wildfires not only affect our environment but also affect our air quality, destorys thousands of homes, and take away lives (human and animals). <br>
+Wildfires most often happen quickly and without warning. 
+Below is a picture of The Rockhouse Fire from 2011 around the Fort Davis area in west Texas. This fire started from an electrical short in an abandoned building and ended up burning roughly 63 acres <b>per minute</b>! In total, this fire burned 20,800 acres in roughly 5.5 hours with an average speed of 6mph. 
 The average human can run 8-10 mph but cannot keep up the pace for 5.5 hours much like this fire did.
 
 ![original (1)](https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/rockhousefire.png)
