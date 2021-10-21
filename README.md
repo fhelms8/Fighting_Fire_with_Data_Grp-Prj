@@ -20,7 +20,7 @@
         <li><a href="#Considerations">Considerations</a></li>
       </ul>
     </li>
-  <li><a href="#Recomendations">Process</a></li>
+  <li><a href="#Recommendations">Recommendations</a></li>
     <li><a href="#Process">Process</a></li>
       <ul>
          <li><a href="#Tools">Tools</a></li>
