@@ -33,7 +33,7 @@
 
 The Texas Outdoors and Nature Department have recently received an additional $10 million in state funding for wildfire prevention. The department has hired our firm to help decide where to invest their funds best.
 
-Our goal is to develop a web application to compile and display relevant historical data for chief staff.  In addition, we will provide insights and recommendations based on the initial analysis.  
+Our goal is to develop a web application to compile and display relevant historical data for executive staff.  In addition, we will provide insights and recommendations based on the initial analysis.  
 
 ## Considerations
 - **Education and Marketing:** Which audience is best suited to receive wildfire prevention education?
@@ -49,7 +49,9 @@ Our goal is to develop a web application to compile and display relevant histori
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Our Recommendations
-The Dashboard was constructed with Bootstrap and HTML. Focus was on delivering an application that would deliver required information through a visually appealing and  user-friendly interface. 
+Arson appears to be a consistent cause of wildfires in Texas. The current maximum penalty for arson resulting in severe injury or death is equivalent to possessing 4 to 200 grams of cocaine. (Both result in a fine of up to $10,000 and a max of 10 years in prison.) The department might consider partnering with law enforcement and lawmakers to increase the maximum sentence for arson. 
+
+In 2015, 'equipment use' became the leading cause of wildfires in Texas. Activities under this category include the use of lawnmowers, weed-eaters, chain saws, grinders, welders, and tractors. We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely.   
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
