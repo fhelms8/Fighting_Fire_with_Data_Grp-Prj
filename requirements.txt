@@ -4,6 +4,7 @@ colorama
 dataclasses
 Flask
 Flask-SQLAlchemy
+gunicorn
 greenlet
 importlib-metadata
 itsdangerous
