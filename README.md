@@ -53,7 +53,7 @@ The average human can run 8-10 mph but cannot keep up the pace for 5.5 hours muc
 
 ![original (1)](https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/rockhousefire.png)
 
-We all know that children can be rotten and destructive (semi-kidding), but what we didn't know is that they cause almost the same amount of wildfires as railroads do!
+We all know that children can be rotten and destructive (semi-kidding), but what we didn't know is that they cause almost the same amount of wildfires as campfires do! 
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/campfire_children_railroads2.png>
 
 In 2011, Texas saw a massive influx of fires due to a serious drought. Roughly 3.5 million acres were burned throughout 2011 with the leading cause being “Equipment Use” with "Arson" trailing close behind as the second leading cause.  
