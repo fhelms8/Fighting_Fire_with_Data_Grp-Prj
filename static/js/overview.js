@@ -4,6 +4,9 @@ const spiData = '/api/spi';
 const fireData = '/api/texas_fires';
 const fbyData = '/api/fires_by_year';
 const cbyData = '/api/causes_by_year';
+const acresCauseData = '/api/acres_cause';
+const acresClassData = '/api/acres_class';
+const acresYearData = '/api/acres_year';
 const yearData = 'api/years';
 
 let years = [];
@@ -23,13 +26,83 @@ d3.json(fbyData).then(data => {
         y: fbytotal,
         type: 'bar'}];
     let barLayout = {
+        font:{color:"white"},
         title: "# of Texas Wildfires (1992-2015)",
         // height: 300,
         // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
     };
     Plotly.newPlot('fires-by-year-bar', bar, barLayout);
 });
 console.log(fbytotal);
+
+let yearsums = [];
+d3.json(acresYearData).then(data => {
+    data.forEach(data => {
+        yearsums.push(data.sum);
+    });
+    d3.select('#acres-by-year-bar').html(''); // clears out old graph
+    let year_bar = [{
+        x: years,
+        y: yearsums,
+        type: 'bar'}];
+    let year_barLayout = {
+        font:{color:"white"},
+        title: "Total of Acres by Year",
+        // height: 300,
+        // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
+    };
+    Plotly.newPlot('acres-by-year-bar', year_bar, year_barLayout);
+});
+
+let causes = [];
+let causesums = [];
+d3.json(acresCauseData).then(data => {
+    data.forEach(data => {
+        causes.push(data.stat_cause_descr)
+        causesums.push(data.sum);
+    });
+    d3.select('#acres-by-cause-bar').html(''); // clears out old graph
+    let cause_bar = [{
+        x: causes,
+        y: causesums,
+        type: 'bar'}];
+    let cause_barLayout = {
+        font:{color:"white"},
+        title: "Total of Acres by Cause",
+        // height: 300,
+        // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
+    };
+    Plotly.newPlot('acres-by-cause-bar', cause_bar, cause_barLayout);
+});
+
+let classes = [];
+let classsums = [];
+d3.json(acresClassData).then(data => {
+    data.forEach(data => {
+        classes.push(data.fire_size_class)
+        classsums.push(data.sum);
+    });
+    d3.select('#acres-by-class-bar').html(''); // clears out old graph
+    let class_bar = [{
+        x: classes,
+        y: classsums,
+        type: 'bar'}];
+    let class_barLayout = {
+        font:{color:"white"},
+        title: "Total of Acres by Class",
+        // height: 300,
+        // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
+    };
+    Plotly.newPlot('acres-by-class-bar', class_bar, class_barLayout);
+});
 
 // get the list of years and causes for the dropdowns
 // let selYear = document.getElementById('selFireYear')
@@ -90,139 +163,111 @@ d3.json(cbyData).then(get => {
 
     // d3.select('#causes').html(''); // clears out old graph
 
-    total_trace = {
-    type: 'bar',
-    x: years,
-    y: fbytotal,
-    mode: 'lines',
-    name: 'Total',
-    line: {
-      color: 'rgb(219, 64, 82)',
-      width: 3
-    }
-    };
-    
     arson_trace = {
-    type: 'bar',
-    x: years,
-    y: arsonByYear,
-    mode: 'lines',
-    name: 'Arson',
-    line: {
-      color: 'rgb(55, 128, 191)',
-      width: 2
-    }
-    };
+        type: 'scatter',
+        x: years,
+        y: arsonByYear,
+        mode: 'lines',
+        name: 'Arson',
+        line: {
+          color: '#D0B440',
+          width: 2
+        }
+      };
+      camp_trace = {
+        type: 'scatter',
+        x: years,
+        y: campfireByYear,
+        mode: 'lines',
+        name: 'Campfire',
+        line: {
+          color: '#824D99',
+          width: 2
+        }
+      };
+      smoke_trace = {
+        type: 'scatter',
+        x: years,
+        y: smokingByYear,
+        mode: 'lines',
+        name: 'Smokeing',
+        line: {
+          color: '#E7EBFA',
+          width: 2
+        }
+      };
+      equip_trace = {
+        type: 'scatter',
+        x: years,
+        y: equipByYear,
+        mode: 'lines',
+        name: 'Equipment Use',
+        line: {
+          color: '#CE2220',
+          width: 2
+        }
+      };
+      child_trace = {
+        type: 'scatter',
+        x: years,
+        y: childByYear,
+        mode: 'lines',
+        name: 'Children',
+        line: {
+          color: '#57A2AC',
+          width: 2
+        }
+      };
+      rail_trace = {
+        type: 'scatter',
+        x: years,
+        y: railByYear,
+        mode: 'lines',
+        name: 'Railroads',
+        line: {
+          color: '#7EB875',
+          width: 2
+        }
+      };
+      fireworks_trace = {
+        type: 'scatter',
+        x: years,
+        y: firewByYear,
+        mode: 'lines',
+        name: 'Fireworks',
+        line: {
+          color: '#B997C6',
+          width: 2
+        }
+      };
+      powerlines_trace = {
+        type: 'scatter',
+        x: years,
+        y: powlineByYear,
+        mode: 'lines',
+        name: 'Powerlines',
+        line: {
+          color: '#E67F33',
+          width: 2
+        }
+      };
     
-    camp_trace = {
-    type: 'bar',
-    x: years,
-    y: campfireByYear,
-    mode: 'lines',
-    name: 'Campfire',
-    line: {
-      color: 'green',
-      width: 2
-    }
-    };
-    
-    smoke_trace = {
-    type: 'bar',
-    x: years,
-    y: smokingByYear,
-    mode: 'lines',
-    name: 'Smokeing',
-    line: {
-      color: 'orange',
-      width: 2
-    }
-    };
-    
-    lightning_trace = {
-    type: 'bar',
-    x: years,
-    y: lightningByYear,
-    mode: 'lines',
-    name: 'Lightning',
-    line: {
-      color: 'purple',
-      width: 2
-    }
-    };
-    
-    equip_trace = {
-    type: 'bar',
-    x: years,
-    y: equipByYear,
-    mode: 'lines',
-    name: 'Equipment Use',
-    line: {
-      color: 'green',
-      width: 2
-    }
-    };
-    
-    child_trace = {
-    type: 'bar',
-    x: years,
-    y: childByYear,
-    mode: 'lines',
-    name: 'Children',
-    line: {
-      color: 'pink',
-      width: 2
-    }
-    };
-    
-    rail_trace = {
-    type: 'bar',
-    x: years,
-    y: railByYear,
-    mode: 'lines',
-    name: 'Railroads',
-    line: {
-      color: 'yellow',
-      width: 2
-    }
-    };
-    
-    fireworks_trace = {
-    type: 'bar',
-    x: years,
-    y: firewByYear,
-    mode: 'lines',
-    name: 'Fireworks',
-    line: {
-      color: 'black',
-      width: 2
-    }
-    };
-    
-    powerlines_trace = {
-    type: 'bar',
-    x: years,
-    y: powlineByYear,
-    mode: 'lines',
-    name: 'Powerlines',
-    line: {
-      color: 'yellow',
-      width: 2
-    }
-    };
-    
-    let layout = {
-    // width: 1000,
-    // height: 500,
-    // template='plotly_dark'
-    plot_bgcolor:"black",
-    xaxis: {gridcolor: "grey"},
-    yaxis: {gridcolor: "grey"}
-    };
-    
-    let data = [total_trace, arson_trace, camp_trace, 
-              child_trace, rail_trace, equip_trace, 
-              lightning_trace, powerlines_trace, 
-              fireworks_trace];
+      let layout = {
+        font:{color:"white"},
+        title: "Texas Wildfires by Cause",
+        // width: 1000,
+        // height: 500,
+        // template='plotly_dark'
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
+        xaxis: {title: 'Years', gridcolor: "grey"},
+        yaxis: {title: 'Number of Wildfires', gridcolor: "grey"}
+      };
+      let data = [equip_trace, powerlines_trace,
+        arson_trace, rail_trace, child_trace,
+        camp_trace, fireworks_trace];
+      Plotly.newPlot('causes', data, layout);
+
     
     Plotly.newPlot('causes', data, layout);
 });
@@ -232,38 +277,38 @@ d3.json(cbyData).then(get => {
 
 
 
-d3.json(fireData).then(data => {
-    sizeAvgByYear = []
-    for (let i = 0; i < years.length; i++) {
-        // currYear = data.filter(item => item.FIRE_YEAR == years[i])
-        // currCount = currYear.length;
-        sizeTotal = 0
-        for (let i = 0; i < data.length; i++) {
-            sizeTotal = sizeTotal + data[i].FIRE_SIZE 
-        }
-        currYearAvg = sizeTotal/currCount;
-        sizeAvgByYear.push(currYearAvg);
-        console.log(`Size Avg in ${sel}:`, currYearAvg)
-    }
+// d3.json(fireData).then(data => {
+//     sizeAvgByYear = []
+//     for (let i = 0; i < years.length; i++) {
+//         // currYear = data.filter(item => item.FIRE_YEAR == years[i])
+//         // currCount = currYear.length;
+//         sizeTotal = 0
+//         for (let i = 0; i < data.length; i++) {
+//             sizeTotal = sizeTotal + data[i].FIRE_SIZE 
+//         }
+//         currYearAvg = sizeTotal/currCount;
+//         sizeAvgByYear.push(currYearAvg);
+//         console.log(`Size Avg in ${sel}:`, currYearAvg)
+//     }
 
-    d3.select('#size-by-year').html(''); // clears out old graph
+//     d3.select('#size-by-year').html(''); // clears out old graph
 
-    let trace = [{
-        type: 'scatter',
-        x: years,
-        y: sizeAvgByYear,
-        line: {
-          color: 'red',
-          width: 3
-        }
-      }];
+//     let trace = [{
+//         type: 'scatter',
+//         x: years,
+//         y: sizeAvgByYear,
+//         line: {
+//           color: 'red',
+//           width: 3
+//         }
+//       }];
 
-    let Layout = {
-        title: "Average Size by Year",
-        height: 300,
-        width: 600};
-    Plotly.newPlot('size-by-year', trace, Layout);   
-})
+//     let Layout = {
+//         title: "Average Size by Year",
+//         height: 300,
+//         width: 600};
+//     Plotly.newPlot('size-by-year', trace, Layout);   
+// });
 
 
 
@@ -328,29 +373,34 @@ d3.json(paleoData).then(data => {
         data: d4,
     },
     {
-          label: 'Abnormally Wet',
-          backgroundColor: 'rgb(170, 255, 85)',
-          data: w0,
+        label: 'Abnormally Wet',
+        backgroundColor: 'rgb(170, 255, 85)',
+        data: w0,
+        hidden: true,
     },
     {
         label: 'Moderate Wet',
         backgroundColor: 'rgb(1, 255, 255)',
         data: w1,
+        hidden: true,
     },
     {
         label: 'Severe Wet',
         backgroundColor: 'rgb(0, 170, 255)',
         data: w2,
+        hidden: true,
     },
     {
         label: 'Extreme Wet',
         backgroundColor: 'rgb(0, 0, 255)',
         data: w3,
+        hidden: true,
     },
     {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
+        hidden: true,
     },
     {
         type: 'line',

@@ -25,7 +25,10 @@ def get_paleo():
 
 def get_acres_cause():
     sql = """
-    Select * from acres_by_cause
+    SELECT stat_cause_descr, sum(fire_size)
+    FROM texas_fires
+    GROUP BY stat_cause_descr
+    ORDER BY stat_cause_descr ASC;      
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -34,7 +37,10 @@ def get_acres_cause():
 
 def get_acres_class():
     sql = """
-    Select * from acres_by_class
+    SELECT fire_size_class, sum(fire_size)
+    FROM texas_fires
+    GROUP BY fire_size_class
+    ORDER BY fire_size_class ASC;  
     """
 
     results_df = pd.read_sql(sql, con=engine)
@@ -43,7 +49,10 @@ def get_acres_class():
 
 def get_acres_year():
     sql = """
-    Select * from acres_by_year
+    SELECT fire_year, sum(fire_size)
+    FROM texas_fires
+    GROUP BY fire_year
+    ORDER BY fire_year ASC;    
     """
 
     results_df = pd.read_sql(sql, con=engine)

@@ -6,6 +6,42 @@ const fbyData = '/api/fires_by_year';
 const cbyData = '/api/causes_by_year';
 const yearData = 'api/years';
 
+function init(){
+    // pull data from the samples.json file
+    d3.json(fireData).then(data => {
+        // create dropdown options and names from samples.json
+        // var yearDropdown = d3.select("#selFireYear");
+        // years.forEach(item => {
+        //     // loop and populate the names into the dropdown box
+        //     yearDropdown.append("option") // add option to dropdown
+        //     .property("value", item) // variable name
+        //     .text(item); // populate text 
+        // })
+
+        // var causeDropdown = d3.select("#selFireCause");
+        // causeList.forEach(item => {
+        //     // loop and populate the names into the dropdown box
+        //     causeDropdown.append("option") // add option to dropdown
+        //     .property("value", item) // variable name
+        //     .text(item); // populate text 
+        // })
+
+        // console.log(data[20]);
+
+        // //create inital visulizations
+        var initYear = yearDropdown.property("value");
+        firesVsYear();
+        yearVsSize(initYear);
+        yearVsCause(initYear);
+        causePie(initYear);
+        var initCuase = causeDropdown.property("value");
+        causeVsYear(initCuase);
+        
+    })
+};
+
+init();
+
 let years = [];
 d3.json(yearData).then(data => {data.forEach(get => years.push(get.year))});
 // console.log('years',years);
@@ -91,7 +127,7 @@ d3.json(cbyData).then(get => {
     // d3.select('#causes').html(''); // clears out old graph
 
     total_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: fbytotal,
     mode: 'lines',
@@ -103,7 +139,7 @@ d3.json(cbyData).then(get => {
     };
     
     arson_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: arsonByYear,
     mode: 'lines',
@@ -115,7 +151,7 @@ d3.json(cbyData).then(get => {
     };
     
     camp_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: campfireByYear,
     mode: 'lines',
@@ -127,7 +163,7 @@ d3.json(cbyData).then(get => {
     };
     
     smoke_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: smokingByYear,
     mode: 'lines',
@@ -139,7 +175,7 @@ d3.json(cbyData).then(get => {
     };
     
     lightning_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: lightningByYear,
     mode: 'lines',
@@ -151,7 +187,7 @@ d3.json(cbyData).then(get => {
     };
     
     equip_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: equipByYear,
     mode: 'lines',
@@ -163,7 +199,7 @@ d3.json(cbyData).then(get => {
     };
     
     child_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: childByYear,
     mode: 'lines',
@@ -175,7 +211,7 @@ d3.json(cbyData).then(get => {
     };
     
     rail_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: railByYear,
     mode: 'lines',
@@ -187,7 +223,7 @@ d3.json(cbyData).then(get => {
     };
     
     fireworks_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: firewByYear,
     mode: 'lines',
@@ -199,7 +235,7 @@ d3.json(cbyData).then(get => {
     };
     
     powerlines_trace = {
-    type: 'bar',
+    type: 'scatter',
     x: years,
     y: powlineByYear,
     mode: 'lines',
@@ -330,9 +366,13 @@ function optionChanged(sel) {
             y: fireSizeCount,
             type: 'bar'}];
         let barLayout = {
+            font:{color:"white"},
             title: `Fires by Size in ${sel}`,
-            height: 300,
-            width: 600};
+            // height: 300,
+            // width: 600
+            plot_bgcolor:"#1E1F20",
+            paper_bgcolor: "#1E1F20",
+        };
         Plotly.newPlot('fires-by-size', bar, barLayout);
 // __________________________________________________________________________
         fireCauseCount = []
@@ -353,9 +393,13 @@ function optionChanged(sel) {
             y: fireCauseCount,
             type: 'bar'}];
         let barLayout2 = {
+            font:{color:"white"},
             title: `Fires by Cause in ${sel}`,
-            height: 300,
-            width: 600};
+            // height: 300,
+            // width: 600
+            plot_bgcolor:"#1E1F20",
+            paper_bgcolor: "#1E1F20",
+        };
         Plotly.newPlot('fires-by-cause-bar', bar2, barLayout2);
   
 // __________________________________________________________________________
@@ -373,9 +417,12 @@ function optionChanged(sel) {
             y: causeCountByYear,
             type: 'bar'}];
         let barLayout3 = {
-            title: `Fires Caused by ${sel}`,
-            height: 300,
-            width: 600
+            font:{color:"white"},
+        title: `Fires Caused by ${sel}`,
+            // height: 300,
+            // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
         };
         Plotly.newPlot('cause-by-year-plot', bar3, barLayout3);
     });
@@ -412,9 +459,13 @@ d3.json(fireData).then(data => {
       }];
 
     let Layout = {
+        font:{color:"white"},
         title: "Average Size by Year",
-        height: 300,
-        width: 600};
+        // height: 300,
+        // width: 600
+        plot_bgcolor:"#1E1F20",
+        paper_bgcolor: "#1E1F20",
+    };
     Plotly.newPlot('size-by-year', trace, Layout);   
 })
 
@@ -481,29 +532,34 @@ d3.json(paleoData).then(data => {
         data: d4,
     },
     {
-          label: 'Abnormally Wet',
-          backgroundColor: 'rgb(170, 255, 85)',
-          data: w0,
+        label: 'Abnormally Wet',
+        backgroundColor: 'rgb(170, 255, 85)',
+        data: w0,
+        hidden: true,
     },
     {
         label: 'Moderate Wet',
         backgroundColor: 'rgb(1, 255, 255)',
         data: w1,
+        hidden: true,
     },
     {
         label: 'Severe Wet',
         backgroundColor: 'rgb(0, 170, 255)',
         data: w2,
+        hidden: true,
     },
     {
         label: 'Extreme Wet',
         backgroundColor: 'rgb(0, 0, 255)',
         data: w3,
+        hidden: true,
     },
     {
         label: 'Exceptional Wet',
         backgroundColor: 'rgb(0, 0, 170)',
         data: w4,
+        hidden: true,
     },
     {
         type: 'line',
