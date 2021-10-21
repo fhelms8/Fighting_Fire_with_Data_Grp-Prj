@@ -58,7 +58,7 @@ We all know that children can be rotten and destructive (semi-kidding), but what
 
 In 2011, Texas saw a massive influx of fires due to a serious drought. Roughly 3.5 million acres were burned throughout 2011 with the leading cause being “Equipment Use” with "Arson" trailing close behind as the second leading cause.  
 <img src=https://raw.githubusercontent.com/fhelms8/Project-3/main/Unused%20files/pics/arson_equip_powerlines2.png>
-As you can see, in 2011, Texas had burned roughly 3.5 MILLION acres which is almost the same size as state of Connecticut (3.54 acres)!! 
+As you can see, in 2011, Texas had burned roughly 3.5 MILLION acres which is almost the same size as state of Connecticut (3.54 mil acres)!! 
 - **1992-1999 (7 year span)** = 425,487 acres / 7yrs = 105,336 average acres burned per year
 - **2000-2007 (7 year span)** = 2,683,265 acres / 7yrs = 383,324 average acres burned per year
 - **2008-2015 (7 year span)** = 6,365,597 acres / 7yrs = 909,371 average acres burned per year
@@ -76,7 +76,6 @@ There is a massive count of miscellaneous and unidentified wildfire causes (we c
 
 - Since 2008, 'equipment use' has maintained the leading cause of wildfires in Texas. Activities under this category include (but not limited to) the use of lawnmowers, weed-eaters, chain saws, grinders, welders, tractors, and construction machinery.  We strongly suggest that the department educate communities in high-risk regions on how to operate equipment safely along with making annual inspections of equipement mandetory. Currently, the only inspection regulation for equipement use is from the manufacterer and no inspections are required after. 
 
-- One last recommendation is to make a wildfire protection program that allows citizens with pilots licenses to get a tax break on planes that have a higher weight capacity and higher heat resistance. In order for a citizen to get the tax break, they would need to be trained in a wildfire program and to be notified if a wildfire outbreak is within their area. The reason being is the bigger planes that carry the retardants, take more time to load, travel back and forth, and there are limited amount of planes/trained pilots, which make the process take much longer. If we can get citizens to assist and help contain the fires between "big drops" then, there might be a chance to save acres, houses, and most importantly, lives.
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 ### Our Process
