@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Basic Map</title>
+    <title>TX Wildfires</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
         integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
         crossorigin="" />
@@ -107,8 +107,23 @@
     <br />
     <div class="container">
         <div class ="row">
+            <div class="card border-danger mb-3">
+                <div class="card-body text-danger">
+                <div align='center'>
+                    <h1> Fighting Fire with Data </h1>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class ="row">    
             <div class="col-lg-7">
                 <div class="mapContainer" style="height: 550px;width: 100%;">
+                    <div align="center">
+                        <br>
+                        <h2> Where do Wildfires Happen? </h2>
+                        Select a Year or Cause from the dropdown above to view wildfire locations.
+                        <br>
+                    </div>
                     <div id="map" class="currentMap">
                     </div>
                 </div>
