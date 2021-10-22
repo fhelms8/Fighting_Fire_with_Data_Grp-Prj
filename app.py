@@ -32,9 +32,13 @@ from flask_sqlalchemy import SQLAlchemy
 def test():
     return render_template("index.html")
 
-@app.route("/overview.html")
+@app.route("/overview")
 def overview():
     return render_template("overview.html")
+
+@app.route("/insights")
+def insights():
+    return render_template("insights.html")
 
 @app.route("/api/spi")
 def spi():
